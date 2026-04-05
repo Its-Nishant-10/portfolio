@@ -4,27 +4,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nishant Nahar | Developer</title>
+  <title>Nishant Nahar | Software Developer & Tinkerer</title>
   <meta name="description"
-    content="Portfolio of Nishant Nahar — Developer, tinkerer, problem solver. Projects in Web, Automation, and C++." />
-  <meta name="keywords" content="Nishant Nahar, developer, portfolio, C++, Java, web, automation, India" />
+    content="The digital portfolio of Nishant Nahar. Discover my projects in full-stack web development, automation, and C++. Building things that work and look good doing it." />
+  <meta name="keywords"
+    content="Nishant Nahar, developer, software engineer, portfolio, UI/UX, C++, Web Development, Automation, India" />
   <meta name="author" content="Nishant Nahar" />
-  <meta name="theme-color" content="#fafaf8" />
+  <meta name="theme-color" content="#FFE000" />
+  <link rel="canonical" href="https://its-nishant-10.github.io/portfolio_website/" />
 
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:title" content="Nishant Nahar | Developer & Tinkerer" />
   <meta property="og:description"
-    content="Developer, tinkerer, problem solver. Projects in Web, Automation, and C++." />
-  <meta property="og:image" content="contents/pfp.png" />
+    content="Developer, tinkerer, problem solver. Building things that work and look good doing it. Check out my projects and code!" />
+  <meta property="og:image" content="https://its-nishant-10.github.io/portfolio_website/contents/pfp.png" />
   <meta property="og:url" content="https://its-nishant-10.github.io/portfolio_website/" />
   <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nishant Nahar | Developer & Tinkerer" />
+  <meta name="twitter:description"
+    content="Developer, tinkerer, problem solver. Building things that work and look good doing it." />
+  <meta name="twitter:image" content="https://its-nishant-10.github.io/portfolio_website/contents/pfp.png" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nishant Nahar",
+    "jobTitle": "Software Developer",
+    "url": "https://its-nishant-10.github.io/portfolio_website/",
+    "image": "https://its-nishant-10.github.io/portfolio_website/contents/pfp.png",
+    "sameAs": [
+      "https://github.com/its-nishant-10",
+      "https://leetcode.com/u/its_nishant_10/"
+    ],
+    "knowsAbout": ["Web Development", "Automation", "C++", "JavaScript", "Python"]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!--
+    ╮──────────────────────────────╯
+    │   hey you found this!  👀  │
+    │   nice to see a fellow   │
+    │   view-source enjoyer.   │
+    ╭──────────────────────────────╮
+
+    open the console for more fun.
+    or try the konami code ⬆️⬆️⬇️⬇️⬅️➡️⬅️➡️ b a
+
+             — Nishant
+  -->
 </head>
 
 <body>
@@ -36,7 +72,7 @@
 
   <header class="navbar" id="navbar">
     <nav class="nav_container">
-      <a href="#hero" class="nav_logo" aria-label="Home">
+      <a href="#hero" class="nav_logo" aria-label="Home" title="Triple-click for a coffee break ☕">
         <span class="logo_mark">N.</span>
         <span class="logo_text">Nishant Nahar</span>
       </a>
@@ -46,14 +82,15 @@
       </button>
 
       <ul class="nav_links" id="nav_links">
-        <li><a href="#about" class="nav_link">About</a></li>
-        <li><a href="#projects" class="nav_link">Work</a></li>
-        <li><a href="#skills" class="nav_link">Skills</a></li>
-        <li><a href="#github_stats" class="nav_link">Stats</a></li>
-        <li><a href="#contact" class="nav_link">Contact</a></li>
+        <li><a href="#about" class="nav_link"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#projects" class="nav_link"><i class="fa-solid fa-folder-open"></i> Work</a></li>
+        <li><a href="#skills" class="nav_link"><i class="fa-solid fa-toolbox"></i> Skills</a></li>
+        <li><a href="#github_stats" class="nav_link"><i class="fa-solid fa-chart-bar"></i> Stats</a></li>
+        <li><a href="#contact" class="nav_link"><i class="fa-solid fa-paper-plane"></i> Contact</a></li>
         <li>
-          <a href="contents/nishant_resume.pdf" class="nav_cv" download>
-            <i class="fa-solid fa-download"></i> CV
+          <a href="https://drive.google.com/uc?export=download&id=1qHEID5Zbvyr-d-wYeXaOi3zgnxbcY-9r" class="nav_cv"
+            target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-arrow-down"></i> CV
           </a>
         </li>
       </ul>
@@ -64,7 +101,7 @@
     <section class="hero" id="hero">
       <div class="hero_grid">
         <div class="hero_left">
-          <span class="hero_eyebrow">Hello, World! 👋</span>
+          <span class="hero_eyebrow"><i class="fa-solid fa-terminal"></i> Hello, World! 👋</span>
 
           <h1 class="hero_name">
             I'm <mark class="nm">Nishant</mark><br />Nahar.
@@ -75,9 +112,12 @@
           </div>
 
           <div class="hero_cta">
-            <a href="#projects" class="btn btn_black">View My Work →</a>
-            <a href="contents/nishant_resume.pdf" class="btn btn_outline" download>
-              <i class="fa-solid fa-download"></i> Download CV
+            <a href="#projects" class="btn btn_black">
+              <i class="fa-solid fa-briefcase"></i> View My Work →
+            </a>
+            <a href="https://drive.google.com/uc?export=download&id=1qHEID5Zbvyr-d-wYeXaOi3zgnxbcY-9r"
+              class="btn btn_outline" target="_blank" rel="noopener">
+              <i class="fa-solid fa-file-arrow-down"></i> Resume
             </a>
           </div>
         </div>
@@ -88,35 +128,51 @@
               <div class="win_dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="win_filename">profile.json</span>
+              <span class="win_filename"><i class="fa-solid fa-terminal"></i> nishant@portfolio ~ profile.json</span>
             </div>
             <div class="profile_card_body">
               <div class="profile_photo_row">
                 <img src="contents/pfp.png" alt="Nishant Nahar" class="profile_thumb" loading="eager" />
-                <span class="avail_badge">● Available</span>
+                <div class="profile_name_group">
+                  <span class="profile_display_name">Nishant Nahar</span>
+                  <span class="avail_badge"><i class="fa-solid fa-circle-dot"></i> Available for Hire</span>
+                </div>
               </div>
               <div class="profile_json">
-                <pre><code><span class="j_key">"name"</span>:     <span class="j_str">"Nishant Nahar"</span>,
-<span class="j_key">"role"</span>:     <span class="j_str">"Developer &amp; Tinkerer"</span>,
-<span class="j_key">"location"</span>: <span class="j_str">"Silchar, India 🇮🇳"</span>,
-<span class="j_key">"fav_lang"</span>: <span class="j_str">"C++"</span>,
-<span class="j_key">"status"</span>:   <span class="j_bool">true</span>,
-<span class="j_key">"open_to"</span>:  <span class="j_arr">["freelance", "full-time"]</span></code></pre>
+                <pre><code><span class="j_brace">{</span>
+  <span class="j_key">"name"</span><span class="j_punct">:</span>      <span class="j_str">"Nishant Nahar"</span><span class="j_punct">,</span>
+  <span class="j_key">"role"</span><span class="j_punct">:</span>      <span class="j_str">"Developer &amp; Tinkerer"</span><span class="j_punct">,</span>
+  <span class="j_key">"location"</span><span class="j_punct">:</span>  <span class="j_str">"Silchar, India 🇮🇳"</span><span class="j_punct">,</span>
+  <span class="j_key">"age"</span><span class="j_punct">:</span>       <span class="j_num">19</span><span class="j_punct">,</span>
+  <span class="j_key">"fav_lang"</span><span class="j_punct">:</span>  <span class="j_str">"C++"</span><span class="j_punct">,</span>
+  <span class="j_key">"skills"</span><span class="j_punct">:</span>    <span class="j_arr">[<span class="j_str">"Web"</span><span class="j_punct">,</span> <span class="j_str">"RPA"</span><span class="j_punct">,</span> <span class="j_str">"C++"</span>]</span><span class="j_punct">,</span>
+  <span class="j_key">"open_to"</span><span class="j_punct">:</span>   <span class="j_arr">[<span class="j_str">"freelance"</span><span class="j_punct">,</span> <span class="j_str">"full-time"</span>]</span><span class="j_punct">,</span>
+  <span class="j_key">"coffee"</span><span class="j_punct">:</span>    <span class="j_str">"way too much ☕"</span><span class="j_punct">,</span>
+  <span class="j_key">"available"</span><span class="j_punct">:</span> <span class="j_bool">true</span>
+<span class="j_brace">}</span><span class="j_cursor">█</span></code></pre>
               </div>
+            </div>
+            <div class="profile_card_footer">
+              <span class="pcf_status"><span class="pcf_dot"></span> online</span>
+              <span class="pcf_line">last_updated: <span class="j_str">"2025"</span></span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="hero_strip">
-        <div class="strip_item"><strong>3</strong><span>Projects</span></div>
         <div class="strip_item">
-          <strong>4+</strong><span>Languages</span>
+          <strong><i class="fa-solid fa-diagram-project"></i> 3</strong><span>Projects</span>
         </div>
         <div class="strip_item">
-          <strong>2+</strong><span>Years Coding</span>
+          <strong><i class="fa-solid fa-code"></i> 4+</strong><span>Languages</span>
         </div>
-        <div class="strip_item"><strong>∞</strong><span>Curiosity</span></div>
+        <div class="strip_item">
+          <strong><i class="fa-solid fa-calendar-days"></i> 2+</strong><span>Years Coding</span>
+        </div>
+        <div class="strip_item">
+          <strong><i class="fa-solid fa-infinity"></i></strong><span>Curiosity</span>
+        </div>
       </div>
     </section>
 
@@ -157,14 +213,12 @@
         <div class="sec_header">
           <div class="sec_eyebrow">
             <span class="sec_num">01</span>
-            <span class="sec_label_text">Selected Work</span>
+            <span class="sec_label_text"><i class="fa-solid fa-folder-open sec_icon"></i> Selected Work</span>
           </div>
           <div class="filter_bar">
             <button class="filter_btn active" data-filter="all">All</button>
             <button class="filter_btn" data-filter="web">Web</button>
-            <button class="filter_btn" data-filter="automation">
-              Automation
-            </button>
+            <button class="filter_btn" data-filter="automation">Automation</button>
             <button class="filter_btn" data-filter="foss">FOSS</button>
           </div>
         </div>
@@ -175,28 +229,24 @@
               <div class="win_dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="win_filename">netflix_clone.html</span>
-              <a href="https://streamflixui.vercel.app/" class="win_ext_link" target="_blank"
-                rel="noopener" aria-label="Open live demo">↗</a>
+              <span class="win_filename"><i class="fa-brands fa-html5"></i> netflix_clone.html</span>
+              <a href="https://streamflixui.vercel.app/" class="win_ext_link" target="_blank" rel="noopener"
+                aria-label="Open live demo">↗</a>
             </div>
 
             <div class="card_image" data-images="contents/netflix_1.jpg|contents/netflix_4.jpg">
               <img src="contents/netflix_1.jpg" alt="Netflix Clone" class="card_img" loading="lazy" />
               <div class="carousel_ctrl">
-                <button class="c_arrow c_prev" aria-label="Previous image">
-                  ‹
-                </button>
+                <button class="c_arrow c_prev" aria-label="Previous image">‹</button>
                 <div class="c_dots">
                   <span class="cdot active"></span>
                   <span class="cdot"></span>
                 </div>
-                <button class="c_arrow c_next" aria-label="Next image">
-                  ›
-                </button>
+                <button class="c_arrow c_next" aria-label="Next image">›</button>
               </div>
               <div class="card_links_overlay">
-                <a href="https://streamflixui.vercel.app/" class="cov_btn" target="_blank"
-                  rel="noopener">Live Demo ↗</a>
+                <a href="https://streamflixui.vercel.app/" class="cov_btn" target="_blank" rel="noopener"><i
+                    class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
                 <a href="https://github.com/Its-Nishant-10/netflix_clone" class="cov_btn cov_gh" target="_blank"
                   rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
               </div>
@@ -204,7 +254,7 @@
 
             <div class="card_body">
               <div class="card_top">
-                <h3 class="card_title">Netflix Clone</h3>
+                <h3 class="card_title"><i class="fa-brands fa-html5 card_title_icon"></i> Netflix Clone</h3>
                 <span class="card_year">2025</span>
               </div>
               <p class="card_desc">
@@ -215,7 +265,7 @@
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
-                <span class="tag" style="background: rgba(255,200,0,0.15); color: #e5c000; border-color: rgba(255,200,0,0.25);">🎓 Educational Clone</span>
+                <span class="tag tag_edu">🎓 Educational Clone</span>
               </div>
             </div>
           </article>
@@ -225,7 +275,7 @@
               <div class="win_dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="win_filename">invoice_pdf.xaml</span>
+              <span class="win_filename"><i class="fa-solid fa-robot"></i> invoice_pdf.xaml</span>
               <a href="https://github.com/Its-Nishant-10/invoice_automation_pdf" class="win_ext_link" target="_blank"
                 rel="noopener" aria-label="Open GitHub">↗</a>
             </div>
@@ -233,16 +283,12 @@
             <div class="card_image" data-images="contents/pdf_2.jpg|contents/pdf_3.jpg">
               <img src="contents/pdf_2.jpg" alt="Invoice Automation" class="card_img" loading="lazy" />
               <div class="carousel_ctrl">
-                <button class="c_arrow c_prev" aria-label="Previous image">
-                  ‹
-                </button>
+                <button class="c_arrow c_prev" aria-label="Previous image">‹</button>
                 <div class="c_dots">
                   <span class="cdot active"></span>
                   <span class="cdot"></span>
                 </div>
-                <button class="c_arrow c_next" aria-label="Next image">
-                  ›
-                </button>
+                <button class="c_arrow c_next" aria-label="Next image">›</button>
               </div>
               <div class="card_links_overlay">
                 <a href="https://github.com/Its-Nishant-10/invoice_automation_pdf" class="cov_btn cov_gh"
@@ -252,7 +298,7 @@
 
             <div class="card_body">
               <div class="card_top">
-                <h3 class="card_title">Invoice Automation</h3>
+                <h3 class="card_title"><i class="fa-solid fa-file-invoice card_title_icon"></i> Invoice Automation</h3>
                 <span class="card_year">2025</span>
               </div>
               <p class="card_desc">
@@ -274,7 +320,7 @@
               <div class="win_dots">
                 <span></span><span></span><span></span>
               </div>
-              <span class="win_filename">diet_planner.xaml</span>
+              <span class="win_filename"><i class="fa-solid fa-robot"></i> diet_planner.xaml</span>
               <a href="https://github.com/Its-Nishant-10/diet_planner" class="win_ext_link" target="_blank"
                 rel="noopener" aria-label="Open GitHub">↗</a>
             </div>
@@ -282,16 +328,12 @@
             <div class="card_image" data-images="contents/diet_2.jpg|contents/diet_1.jpg">
               <img src="contents/diet_2.jpg" alt="Diet Planner" class="card_img" loading="lazy" />
               <div class="carousel_ctrl">
-                <button class="c_arrow c_prev" aria-label="Previous image">
-                  ‹
-                </button>
+                <button class="c_arrow c_prev" aria-label="Previous image">‹</button>
                 <div class="c_dots">
                   <span class="cdot active"></span>
                   <span class="cdot"></span>
                 </div>
-                <button class="c_arrow c_next" aria-label="Next image">
-                  ›
-                </button>
+                <button class="c_arrow c_next" aria-label="Next image">›</button>
               </div>
               <div class="card_links_overlay">
                 <a href="https://github.com/Its-Nishant-10/diet_planner" class="cov_btn cov_gh" target="_blank"
@@ -301,7 +343,7 @@
 
             <div class="card_body">
               <div class="card_top">
-                <h3 class="card_title">Diet Planner Bot</h3>
+                <h3 class="card_title"><i class="fa-solid fa-utensils card_title_icon"></i> Diet Planner Bot</h3>
                 <span class="card_year">2025</span>
               </div>
               <p class="card_desc">
@@ -323,7 +365,7 @@
       <div class="inner">
         <div class="sec_eyebrow">
           <span class="sec_num">02</span>
-          <span class="sec_label_text">About Me</span>
+          <span class="sec_label_text"><i class="fa-solid fa-user sec_icon"></i> About Me</span>
         </div>
 
         <div class="about_grid">
@@ -333,17 +375,18 @@
                 <div class="win_dots">
                   <span></span><span></span><span></span>
                 </div>
-                <span class="win_filename">me.png</span>
+                <span class="win_filename"><i class="fa-solid fa-image"></i> me.png</span>
               </div>
               <div class="photo_frame">
                 <img src="contents/pfp.png" alt="Nishant Nahar" class="profile_photo" loading="lazy" />
               </div>
             </div>
             <div class="about_chips">
-              <span class="about_chip">📍 Silchar, Assam, India 🇮🇳</span>
-              <span class="about_chip">☕ Coffee-powered dev</span>
-              <span class="about_chip">🏸 Squash &amp; Badminton</span>
-              <span class="about_chip">🌍 Open to remote work</span>
+              <span class="about_chip"><i class="fa-solid fa-location-dot"></i> Silchar, Assam, India 🇮🇳</span>
+              <span class="about_chip"><i class="fa-solid fa-mug-hot"></i> Coffee-powered dev</span>
+              <span class="about_chip"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Squash &amp;
+                Badminton</span>
+              <span class="about_chip"><i class="fa-solid fa-earth-asia"></i> Open to remote work</span>
             </div>
           </div>
 
@@ -364,14 +407,14 @@
               always learning, always shipping, always up for a challenge.
             </p>
             <div class="fun_facts">
-              <div class="sticky_note" style="--rot: -2.5deg">
-                🎨 Tinkering nerd at heart
+              <div class="sticky_note" style="--rot: -3deg;" title="Drag me around! 📍">
+                <i class="fa-solid fa-code"></i> Tabs > Spaces. Fight me.
               </div>
-              <div class="sticky_note" style="--rot: -3.5deg">
-                💻 Always learning new things
+              <div class="sticky_note" style="--rot: 2deg;" title="Give me a wobble! 👋">
+                <i class="fa-solid fa-book-open"></i> Always learning new things
               </div>
               <div class="sticky_note" style="--rot: -1.8deg">
-                🚀 Ship first, polish after
+                <i class="fa-solid fa-rocket"></i> Ship first, polish after
               </div>
             </div>
           </div>
@@ -383,17 +426,17 @@
       <div class="inner">
         <div class="sec_eyebrow sd_eyebrow">
           <span class="sec_num sd_num">03</span>
-          <span class="sec_label_text sd_label">My Skills &amp; Toolbox</span>
+          <span class="sec_label_text sd_label"><i class="fa-solid fa-toolbox sec_icon_light"></i> My Skills &amp;
+            Toolbox</span>
         </div>
         <div class="skills_dark_grid">
           <div class="sk_col">
-            <p class="sk_overline">WHAT I KNOW</p>
-            <!-- <h2 class="sk_heading">Skills</h2> -->
-            <br>
+            <p class="sk_overline"><i class="fa-solid fa-chart-simple"></i> WHAT I KNOW</p>
             <div class="skill_bars" id="skill_bars">
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">HTML / CSS / JS</span><span class="skill_pct">90%</span>
+                  <span class="skill_label"><i class="fa-brands fa-html5"></i> HTML / CSS / JS</span>
+                  <span class="skill_pct">90%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="90"></div>
@@ -401,7 +444,8 @@
               </div>
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">Java</span><span class="skill_pct">80%</span>
+                  <span class="skill_label"><i class="fa-brands fa-java"></i> Java</span>
+                  <span class="skill_pct">80%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="80"></div>
@@ -409,7 +453,8 @@
               </div>
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">C++ / C</span><span class="skill_pct">95%</span>
+                  <span class="skill_label"><i class="fa-solid fa-c"></i> C++ / C</span>
+                  <span class="skill_pct">95%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="95"></div>
@@ -417,7 +462,8 @@
               </div>
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">Python</span><span class="skill_pct">75%</span>
+                  <span class="skill_label"><i class="fa-brands fa-python"></i> Python</span>
+                  <span class="skill_pct">75%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="75"></div>
@@ -425,7 +471,8 @@
               </div>
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">UI / UX Design</span><span class="skill_pct">60%</span>
+                  <span class="skill_label"><i class="fa-solid fa-palette"></i> UI / UX Design</span>
+                  <span class="skill_pct">60%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="60"></div>
@@ -433,7 +480,8 @@
               </div>
               <div class="skill_item">
                 <div class="skill_hdr">
-                  <span class="skill_label">Machine Learning</span><span class="skill_pct">30%</span>
+                  <span class="skill_label"><i class="fa-solid fa-brain"></i> Machine Learning</span>
+                  <span class="skill_pct">30%</span>
                 </div>
                 <div class="skill_track">
                   <div class="skill_bar" data-width="30"></div>
@@ -443,24 +491,22 @@
           </div>
 
           <div class="sk_col sk_tools_col">
-            <p class="sk_overline">MY TOOLBOX</p>
-            <!-- <h2 class="sk_heading">Tools</h2> -->
-            <br>
+            <p class="sk_overline"><i class="fa-solid fa-wrench"></i> MY TOOLBOX</p>
             <div class="tools_grid">
-              <span class="tool_tag">Git</span>
-              <span class="tool_tag">GitHub</span>
-              <span class="tool_tag">C++</span>
-              <span class="tool_tag">VS Code</span>
-              <span class="tool_tag">C</span>
-              <span class="tool_tag">Python</span>
-              <span class="tool_tag">Java</span>
-              <span class="tool_tag">HTML / CSS / JS</span>
-              <span class="tool_tag">SQL</span>
-              <span class="tool_tag">Markdown</span>
-              <span class="tool_tag">Linux</span>
-              <span class="tool_tag">Machine Learning</span>
-              <span class="tool_tag">Arduino</span>
-              <span class="tool_tag">Canva</span>
+              <span class="tool_tag"><i class="fa-brands fa-git-alt"></i> Git</span>
+              <span class="tool_tag"><i class="fa-brands fa-github"></i> GitHub</span>
+              <span class="tool_tag"><i class="fa-solid fa-c"></i> C++</span>
+              <span class="tool_tag"><i class="fa-solid fa-code"></i> VS Code</span>
+              <span class="tool_tag"><i class="fa-solid fa-c"></i> C</span>
+              <span class="tool_tag"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="tool_tag"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="tool_tag"><i class="fa-brands fa-html5"></i> HTML / CSS / JS</span>
+              <span class="tool_tag"><i class="fa-solid fa-database"></i> SQL</span>
+              <span class="tool_tag"><i class="fa-brands fa-markdown"></i> Markdown</span>
+              <span class="tool_tag"><i class="fa-brands fa-linux"></i> Linux</span>
+              <span class="tool_tag"><i class="fa-solid fa-brain"></i> Machine Learning</span>
+              <span class="tool_tag"><i class="fa-solid fa-microchip"></i> Arduino</span>
+              <span class="tool_tag"><i class="fa-solid fa-pen-nib"></i> Canva</span>
             </div>
           </div>
         </div>
@@ -471,7 +517,8 @@
       <div class="inner">
         <div class="sec_eyebrow sd_eyebrow">
           <span class="sec_num sd_num">04</span>
-          <span class="sec_label_text sd_label">Coding Activity</span>
+          <span class="sec_label_text sd_label"><i class="fa-solid fa-chart-bar sec_icon_light"></i> Coding
+            Activity</span>
           <span class="sd_live"><span class="sd_live_dot"></span> Active </span>
         </div>
 
@@ -480,17 +527,17 @@
             <div class="coding_block_hdr">
               <span class="coding_block_icon gh_ic"><i class="fa-brands fa-github"></i></span>
               <span class="coding_block_name">GitHub</span>
-              <a href="https://github.com/Its-Nishant-10" class="coding_block_ext" target="_blank"
-                rel="noopener">Profile ↗</a>
+              <a href="https://github.com/Its-Nishant-10" class="coding_block_ext" target="_blank" rel="noopener"><i
+                  class="fa-solid fa-arrow-up-right-from-square"></i> Profile</a>
             </div>
             <div class="coding_cal_area">
-              <p class="coding_cal_label">Contribution Calendar</p>
+              <p class="coding_cal_label"><i class="fa-solid fa-calendar-check"></i> Contribution Calendar</p>
               <div class="coding_cal_frame">
                 <img src="https://ghchart.rshah.org/39d353/Its-Nishant-10" alt="GitHub Contribution Calendar"
                   loading="lazy" class="coding_cal_img" onerror="this.style.opacity = '0.2'" />
               </div>
               <p class="coding_cal_label" style="margin-top: 1rem">
-                Activity Graph
+                <i class="fa-solid fa-chart-line"></i> Activity Graph
               </p>
               <div class="coding_cal_frame coding_graph_frame">
                 <img
@@ -505,14 +552,15 @@
             <div class="coding_block_hdr">
               <span class="coding_block_icon lc_ic"><i class="fa-solid fa-code"></i></span>
               <span class="coding_block_name">LeetCode</span>
-              <a href="https://leetcode.com/u/its_nishant_10/""
-                  class=" coding_block_ext" target="_blank" rel="noopener">Profile ↗</a>
+              <a href="https://leetcode.com/u/its_nishant_10/" class="coding_block_ext" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Profile
+              </a>
             </div>
             <div class="lc_solved_area">
               <div class="lc_big">
                 <span class="lc_number" id="lc_total">26<span style="font-size: 0.5em; opacity: 0.7; font-weight: 500;">
                     / 3860</span></span>
-                <span class="lc_solved_label">Problems Solved</span>
+                <span class="lc_solved_label"><i class="fa-solid fa-check-circle"></i> Problems Solved</span>
               </div>
               <div class="lc_breakdown">
                 <div class="lc_diff lc_easy">
@@ -544,7 +592,7 @@
       <div class="inner">
         <div class="sec_eyebrow">
           <span class="sec_num">05</span>
-          <span class="sec_label_text">Get in Touch</span>
+          <span class="sec_label_text"><i class="fa-solid fa-paper-plane sec_icon"></i> Get in Touch</span>
         </div>
 
         <div class="contact_layout">
@@ -567,6 +615,11 @@
                 <span class="contact_icon"><i class="fa-solid fa-location-dot"></i></span>
                 <span>Silchar, India 🇮🇳</span>
               </div>
+              <a href="https://drive.google.com/uc?export=download&id=1qHEID5Zbvyr-d-wYeXaOi3zgnxbcY-9r"
+                class="contact_row" target="_blank" rel="noopener">
+                <span class="contact_icon"><i class="fa-solid fa-file-arrow-down"></i></span>
+                <span>Download My CV / Resume</span>
+              </a>
             </div>
 
             <div class="social_links">
@@ -583,28 +636,28 @@
 
           <form class="contact_form" id="contact_form" novalidate>
             <div class="form_group">
-              <label for="name">Your Name</label>
+              <label for="name"><i class="fa-solid fa-user"></i> Your Name</label>
               <input type="text" id="name" name="name" placeholder="Nishant Nahar" autocomplete="name" />
               <span class="field_error" id="name_error"></span>
             </div>
             <div class="form_group">
-              <label for="email">Email Address</label>
+              <label for="email"><i class="fa-solid fa-envelope"></i> Email Address</label>
               <input type="email" id="email" name="email" placeholder="nishantnahar2006@example.com"
                 autocomplete="email" />
               <span class="field_error" id="email_error"></span>
             </div>
             <div class="form_group">
-              <label for="subject">Subject</label>
+              <label for="subject"><i class="fa-solid fa-tag"></i> Subject</label>
               <input type="text" id="subject" name="subject" placeholder="What's the matter?" />
               <span class="field_error" id="subject_error"></span>
             </div>
             <div class="form_group">
-              <label for="message">Message</label>
+              <label for="message"><i class="fa-solid fa-message"></i> Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Hi Nishant, I'd like to…"></textarea>
               <span class="field_error" id="message_error"></span>
             </div>
             <button type="submit" class="btn btn_black btn_full" id="submit_btn">
-              Send Message →
+              <i class="fa-solid fa-paper-plane"></i> Send Message →
             </button>
           </form>
         </div>
@@ -615,20 +668,23 @@
   <footer class="footer">
     <div class="footer_inner">
       <div class="footer_left">
-        <span class="footer_logo">Its.Nishant.10</span>
+        <span class="footer_logo"><i class="fa-solid fa-terminal"></i> Its.Nishant.10</span>
         <p class="footer_tagline">
           Building things that work and look good doing it.
         </p>
       </div>
       <nav class="footer_nav" aria-label="Footer navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#github_stats">Stats</a>
-        <a href="#contact">Contact</a>
+        <a href="#about"><i class="fa-solid fa-user"></i> About</a>
+        <a href="#projects"><i class="fa-solid fa-folder-open"></i> Work</a>
+        <a href="#skills"><i class="fa-solid fa-toolbox"></i> Skills</a>
+        <a href="#github_stats"><i class="fa-solid fa-chart-bar"></i> Stats</a>
+        <a href="#contact"><i class="fa-solid fa-paper-plane"></i> Contact</a>
       </nav>
       <div class="footer_cv">
-        <a href="contents/nishant_resume.pdf" class="btn_ghost_sm" download>↓ Download CV</a>
+        <a href="https://drive.google.com/uc?export=download&id=1qHEID5Zbvyr-d-wYeXaOi3zgnxbcY-9r" class="btn_ghost_sm"
+          target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-arrow-down"></i> Download CV
+        </a>
       </div>
     </div>
     <div class="footer_copy">

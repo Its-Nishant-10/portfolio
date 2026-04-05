@@ -1,95 +1,127 @@
-# Nishant Nahar - Portfolio
+# nishant nahar — portfolio
 
-A modern, responsive portfolio website built with Vanilla HTML, CSS, and JavaScript, showcasing my journey as a developer, tinkerer, and problem solver.
+> Built from scratch. No frameworks. No templates. Just me, a browser, and too much coffee.
 
-## 🚀 Features
+---
 
-- **Modern Design**: Clean, neobrutalist dark-themed stats section with a light-mode base, featuring sleek borders and smooth transitions.
-- **Responsive**: Fully responsive across all devices, from desktop to mobile screens.
-- **Performance Optimized**: Fast loading with zero heavy frameworks, relying purely on native web technologies.
-- **Interactive**: Smooth scrolling, hover depth effects, type-writer animations, and embedded image carousels for projects.
-- **Tech Stack Showcase**: Infinite scrolling marquee of specialized tools and technologies.
-- **Live Coding Activity**: Real-time terminal-style integration with GitHub contribution calendar and LeetCode problem-solving stats.
-- **Filterable Projects**: Featured projects categorized with dynamic grid layouts and instant filtering.
+## what is this?
 
-## 🛠️ Tech Stack
+My personal portfolio — a place where I put my work, my story, and my contact info together in one spot. I built the whole thing from zero using vanilla HTML, CSS, and JavaScript because I wanted to actually *understand* what I was building, not just copy a template.
 
-- **Frontend**: Vanilla HTML5, CSS3, ES6 JavaScript
-- **Styling**: Custom CSS Variables, Flexbox, CSS Grid
-- **Typography**: Space Grotesk, DM Sans, IBM Plex Mono (Google Fonts)
-- **Icons**: FontAwesome
-- **Integrations**: LeetCard API, GitHub Readme Activity Graph
-- **Deployment**: Zero-build static serving ready for GitHub Pages, Vercel, or Netlify
+The design follows **Neubrutalism** — thick borders, hard shadows, bold typography, yellow accents. It looks a little raw on purpose. That's the point.
 
-## 📦 Installation
+---
 
-Clone the repository:
+## stuff it does
+
+- **Typewriter intro** — cycles through phrases about how I think about building things
+- **Project cards** — image carousels on hover, filter by category (Web / Automation / FOSS), links to live demos and GitHub
+- **Infinite tech marquee** — scrolling ticker of my stack, pauses on hover, each icon has its actual brand color
+- **About section** — photo, sticky notes, a bit about who I actually am
+- **Skill bars** — animated on scroll, per-skill icon colors
+- **Toolbox** — every tool I actually use, hover to see the brand color
+- **Live coding stats** — GitHub contribution calendar + activity graph pulled live, LeetCode stats from a public API (real numbers, updated automatically)
+- **Contact form** — fully validated, sends via Formspree, no refresh
+- **Responsive** — works on every screen size from a wide desktop down to a tiny phone
+
+---
+
+## tech used
+
+```
+HTML5 + CSS3 + vanilla JavaScript  (that's literally it)
+├── Google Fonts — Space Grotesk, DM Sans, IBM Plex Mono
+├── FontAwesome 6 — icons
+├── Formspree — contact form backend
+├── ghchart.rshah.org — GitHub contribution calendar image
+├── github-readme-activity-graph — GitHub activity graph
+└── leetcode-api-faisalshohag.vercel.app — LeetCode stats
+```
+
+Zero npm. Zero webpack. Zero build step. Open `index.html` and it works.
+
+---
+
+## running it locally
 
 ```bash
 git clone https://github.com/Its-Nishant-10/portfolio.git
 cd portfolio
 ```
 
-No package manager or build steps required. Simply open `index.html` in your browser or run a local web server (e.g. VSCode Live Server).
-
-## 🚀 Deployment
-
-### Vercel
-
-1. Connect your GitHub repository to Vercel
-2. Deploy automatically — Vercel will serve the static HTML immediately.
-3. Custom domain — Add your custom domain in the Vercel dashboard.
-
-### Netlify
-
-1. Connect your GitHub repository to Netlify
-2. Leave build settings blank (publish directory is the root folder)
-3. Deploy
-
-### GitHub Pages
-
-Simply go to the repository Settings > Pages, and select the `main` branch to deploy automatically.
-
-## 📁 Project Structure
-
-```text
-portfolio/
-├── contents/            # Images, CV, and assets
-│   ├── projects/        # Project thumbnails
-│   ├── cv.pdf           # Downloadable resume
-│   └── pfp.png          # Profile picture
-├── index.html           # Main portfolio document
-├── style.css            # Custom styling and layout
-└── script.js            # Interactivity and animations
-```
-
-## 🔧 Configuration
-
-- **Personal Information**: Update `index.html` with your name, tagline, and details.
-- **GitHub Stats**: Replace `Its-Nishant-10` with your GitHub username in the `index.html` `src` links for the contribution calendar and activity graph.
-- **LeetCode Stats**: Update the username in the LeetCard embed image URL in `index.html`.
-- **Projects**: Modify the project cards directly inside the `.projects_grid` container in `index.html`.
-
-## 📊 Performance
-
-- **Zero Dependencies**: Exceptionally fast initial load times.
-- **SEO Ready**: Semantic HTML structure with proper heading hierarchies.
-- **Lazy Loading**: Images and external embeds use `loading="lazy"` to preserve bandwidth.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-
-## 📞 Contact
-
-- **Email**: nishantnahar2006@gmail.com
-- **LinkedIn**: https://www.linkedin.com/in/nishantnahar2006
-- **GitHub**: Its-Nishant-10
+Open `index.html` directly in your browser, or use VS Code Live Server.  
+That's genuinely all there is to it.
 
 ---
 
-Built from scratch with ❤️ by Nishant Nahar
+## folder layout
+
+```
+portfolio/
+├── contents/
+│   ├── pfp.png              ← profile photo
+│   ├── netflix_1.jpg        ← project screenshots
+│   ├── netflix_4.jpg
+│   ├── pdf_2.jpg
+│   ├── pdf_3.jpg
+│   ├── diet_1.jpg
+│   └── diet_2.jpg
+├── index.html               ← the whole site
+├── style.css                ← all the styling
+├── script.js                ← all the JS
+└── README.md                ← you are here
+```
+
+---
+
+## deploying
+
+It's a static site. Drag it anywhere.
+
+**GitHub Pages** → Settings → Pages → select `main` branch → done.  
+**Vercel** → import repo → it auto-detects as static → deploy.  
+**Netlify** → drag the folder into their UI → done.
+
+No build settings needed for any of them.
+
+---
+
+## if you want to fork this
+
+Go for it, but please swap out my name/photo/links before putting it online. It's not hard — everything personal is in `index.html`:
+
+- Name, tagline, location in the hero and about sections
+- Project cards in `.projects_grid`
+- GitHub username in the calendar/graph image URLs
+- LeetCode API URL (`/its_nishant_10` → your username)
+- Formspree endpoint in `script.js` (`formspree_url`)
+- Social links in the contact section and footer
+- CV link (currently points to my Google Drive)
+
+---
+
+## a few edge cases worth knowing
+
+- The LeetCode API (`leetcode-api-faisalshohag.vercel.app`) is a free third-party wrapper. If it's down, the stats panel just keeps the fallback numbers from the HTML — it doesn't crash anything.
+- The GitHub graphs are external images — if they take a second to load on slow connections, that's expected.
+- The contact form uses Formspree's free tier (50 submissions/month). If you're forking this for heavy use, sign up for your own endpoint.
+- The marquee animation is paused when `prefers-reduced-motion` would normally kill it — I made a specific exclusion so it still scrolls, since it's purely decorative and content-informational.
+
+---
+
+## easter eggs
+
+There are a few hidden around the site. I'm not going to list them here. Poke around — check the console, try a few keyboard shortcuts, read the source.
+
+---
+
+## contact
+
+- **Email** — nishantnahar2006@gmail.com  
+- **LinkedIn** — [nishantnahar2006](https://www.linkedin.com/in/nishantnahar2006)  
+- **GitHub** — [Its-Nishant-10](https://github.com/Its-Nishant-10)  
+- **X** — [@yours_nishant](https://x.com/yours_nishant)
+
+---
+
+*Nishant Nahar — 2025*
