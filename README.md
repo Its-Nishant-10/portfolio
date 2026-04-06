@@ -6,7 +6,7 @@
 
 ## what is this?
 
-My personal portfolio — a place where I put my work, my story, and my contact info together in one spot. I built the whole thing from zero using vanilla HTML, CSS, and JavaScript because I wanted to actually *understand* what I was building, not just copy a template.
+My personal portfolio — a place where I put my work, my story, and my contact info together in one spot. I built the whole thing from zero using vanilla HTML, CSS, and JavaScript because I wanted to actually _understand_ what I was building, not just copy a template.
 
 The design follows **Neubrutalism** — thick borders, hard shadows, bold typography, yellow accents. It looks a little raw on purpose. That's the point.
 
@@ -117,11 +117,11 @@ There are a few hidden around the site. I'm not going to list them here. Poke ar
 
 ## contact
 
-- **Email** — nishantnahar2006@gmail.com  
-- **LinkedIn** — [nishantnahar2006](https://www.linkedin.com/in/nishantnahar2006)  
-- **GitHub** — [Its-Nishant-10](https://github.com/Its-Nishant-10)  
+- **Email** — nishantnahar2006@gmail.com
+- **LinkedIn** — [nishantnahar2006](https://www.linkedin.com/in/nishantnahar2006)
+- **GitHub** — [Its-Nishant-10](https://github.com/Its-Nishant-10)
 - **X** — [@yours_nishant](https://x.com/yours_nishant)
 
 ---
 
-*Nishant Nahar — 2025*
+_Nishant Nahar — 2025_
