@@ -28,7 +28,7 @@ The design follows **Neubrutalism** — thick borders, hard shadows, bold typogr
 
 ## tech used
 
-```
+```text
 HTML5 + CSS3 + vanilla JavaScript  (that's literally it)
 ├── Google Fonts — Space Grotesk, DM Sans, IBM Plex Mono
 ├── FontAwesome 6 — icons
@@ -56,7 +56,7 @@ That's genuinely all there is to it.
 
 ## folder layout
 
-```
+```text
 portfolio/
 ├── contents/
 │   ├── pfp.png              ← profile photo
@@ -117,11 +117,12 @@ There are a few hidden around the site. I'm not going to list them here. Poke ar
 
 ## contact
 
-- **Email** — nishantnahar2006@gmail.com
+- **Email** — [nishantnahar2006@gmail.com](mailto:nishantnahar2006@gmail.com)
 - **LinkedIn** — [nishantnahar2006](https://www.linkedin.com/in/nishantnahar2006)
 - **GitHub** — [Its-Nishant-10](https://github.com/Its-Nishant-10)
 - **X** — [@yours_nishant](https://x.com/yours_nishant)
 
 ---
 
+&nbsp;  
 _Nishant Nahar — 2025_
