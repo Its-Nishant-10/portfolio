@@ -8,7 +8,7 @@
 
 My personal portfolio — a place where I put my work, my story, and my contact info together in one spot. I built the whole thing from zero using vanilla HTML, CSS, and JavaScript because I wanted to actually _understand_ what I was building, not just copy a template.
 
-The design follows **Neubrutalism** — thick borders, hard shadows, bold typography, yellow accents. It looks a little raw on purpose. That's the point.
+The design follows **Neobrutalism** — thick borders, hard shadows, bold typography, yellow accents. It looks a little raw on purpose. That's the point.
 
 ---
 
@@ -106,12 +106,6 @@ Go for it, but please swap out my name/photo/links before putting it online. It'
 - The GitHub graphs are external images — if they take a second to load on slow connections, that's expected.
 - The contact form uses Formspree's free tier (50 submissions/month). If you're forking this for heavy use, sign up for your own endpoint.
 - The marquee animation is paused when `prefers-reduced-motion` would normally kill it — I made a specific exclusion so it still scrolls, since it's purely decorative and content-informational.
-
----
-
-## easter eggs
-
-There are a few hidden around the site. I'm not going to list them here. Poke around — check the console, try a few keyboard shortcuts, read the source.
 
 ---
 

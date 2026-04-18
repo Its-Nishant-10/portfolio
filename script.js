@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
   (async () => {
     try {
       const res = await fetch(
-        "https://leetcode-api-faisalshohag.vercel.app/its_nishant_10",
+        "https://leetcode-api-faisalshohag.vercel.app/its_nishant",
       );
       if (!res.ok) throw new Error();
       const {
@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
       set("lc_easy_count", "lc_easy_bar", easySolved, totalEasy);
       set("lc_medium_count", "lc_medium_bar", mediumSolved, totalMedium);
       set("lc_hard_count", "lc_hard_bar", hardSolved, totalHard);
-    } catch {}
+    } catch { }
   })();
 
   const form = $("#contact_form");
