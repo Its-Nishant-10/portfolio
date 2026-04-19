@@ -1,49 +1,55 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600;700&family=Permanent+Marker&display=swap");
 
 :root {
-  --yellow: #c9a227;
-  --yellow-muted: rgba(201, 162, 39, 0.14);
-  --black: #1c1c1c;
-  --white: #f4f1ea;
-  --cream: #ebe6dc;
+  --yellow: #FFC900;
+  --pink: #FF90E8;
+  --blue: #4A90E2;
+  --green: #b8e986;
+  --yellow-muted: rgba(255, 201, 0, 0.25);
+  --black: #000000;
+  --white: #ffffff;
+  --cream: #f4f4f0;
   --gray-500: #6b6b6b;
   --gray-400: #8a8a8a;
-  --border-soft: rgba(28, 28, 28, 0.12);
-  --red: #c53030;
+  --border-soft: rgba(0, 0, 0, 0.2);
+  --red: #FF4911;
 
   --bg: var(--white);
   --bg-tint: var(--cream);
   --bg-dark: #141414;
-  --card: #faf8f3;
+  --card: #ffffff;
 
   --font-head: "Space Grotesk", sans-serif;
   --font-body: "DM Sans", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --font-hand: "Caveat", cursive;
+  --font-marker: "Permanent Marker", cursive;
 
-  --bd: 2px solid var(--black);
-  --bd-subtle: 1.5px solid rgba(28, 28, 28, 0.15);
-  --bd-g: 1.5px solid rgba(28, 28, 28, 0.12);
+  --bd-width: 3px;
+  --bd: var(--bd-width) solid var(--black);
+  --bd-subtle: 2px solid rgba(0, 0, 0, 0.25);
+  --bd-g: 2px solid rgba(0, 0, 0, 0.25);
 
-  --pop: 4px;
-  --pop-lg: 6px;
-  --pop-xl: 8px;
+  --pop: 6px;
+  --pop-lg: 10px;
+  --pop-xl: 14px;
   --brut: var(--pop) var(--pop) 0 var(--black);
   --brut-lg: var(--pop-lg) var(--pop-lg) 0 var(--black);
   --brut-xl: var(--pop-xl) var(--pop-xl) 0 var(--black);
 
-  --brut-dark: var(--pop) var(--pop) 0 rgba(0, 0, 0, 0.45);
-  --brut-dark-lg: var(--pop-lg) var(--pop-lg) 0 rgba(0, 0, 0, 0.55);
+  --brut-dark: var(--pop) var(--pop) 0 rgba(0, 0, 0, 1);
+  --brut-dark-lg: var(--pop-lg) var(--pop-lg) 0 rgba(0, 0, 0, 1);
 
-  --nav-h: 60px;
+  --nav-h: 70px;
   --pg-w: 1100px;
-  --section-y: clamp(3.5rem, 8vw, 5.25rem);
-  --tr: 0.22s ease;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --section-y: clamp(4rem, 9vw, 6rem);
+  --tr: 0.15s cubic-bezier(0,0,0.2,1);
+  --ease-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   --sh-sm: var(--brut);
   --sh: var(--brut-lg);
   --sh-lg: var(--brut-xl);
-  --sh-xl: calc(var(--pop-xl) + 2px) calc(var(--pop-xl) + 2px) 0 var(--black);
+  --sh-xl: calc(var(--pop-xl) + 4px) calc(var(--pop-xl) + 4px) 0 var(--black);
 }
 
 *,
@@ -64,12 +70,50 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg);
   background-image:
-    linear-gradient(rgba(28, 28, 28, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(28, 28, 28, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(rgba(0, 0, 0, 0.08) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
+  background-size: 50px 50px;
   color: var(--black);
   line-height: 1.65;
   overflow-x: hidden;
+}
+
+/* Fun Neo-Brutalist Shapes */
+.fun-shape {
+  position: absolute;
+  border: var(--bd);
+  box-shadow: 4px 4px 0 var(--black);
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.shape-circle {
+  width: 120px;
+  height: 120px;
+  background: var(--pink);
+  border-radius: 50%;
+  top: 10%;
+  right: 8%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.shape-star {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  font-size: 120px;
+  color: var(--yellow);
+  -webkit-text-stroke: 3px var(--black);
+  text-shadow: 6px 6px 0 var(--black);
+  top: 60%;
+  left: -2%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(15deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
 
 img {
@@ -266,12 +310,14 @@ mark.nm {
   background: var(--black);
   color: var(--yellow);
   box-shadow: var(--brut-lg);
-  transform: translate(-4px, -4px);
+  transform: translate(-6px, -6px) rotate(-1.5deg);
 }
 
 .btn_black:hover {
-  background: var(--yellow);
+  background: var(--pink);
   color: var(--black);
+  transform: translate(-2px, -2px) rotate(1deg);
+  box-shadow: var(--brut);
 }
 
 .btn_outline {
@@ -279,12 +325,14 @@ mark.nm {
   color: var(--black);
   border-color: var(--black);
   box-shadow: var(--brut-lg);
-  transform: translate(-4px, -4px);
+  transform: translate(-6px, -6px) rotate(1.5deg);
 }
 
 .btn_outline:hover {
-  background: var(--black);
-  color: var(--yellow);
+  background: var(--blue);
+  color: var(--white);
+  transform: translate(-2px, -2px) rotate(-1deg);
+  box-shadow: var(--brut);
 }
 
 .btn_full {
@@ -296,10 +344,10 @@ mark.nm {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  padding: 0.25rem 0.65rem;
-  background: var(--black);
-  color: var(--yellow);
-  border: 2px solid var(--black);
+  padding: 0.35rem 0.65rem;
+  background: var(--white);
+  color: var(--black);
+  border: var(--bd);
   letter-spacing: 0.04em;
   transition:
     background var(--tr),
@@ -308,21 +356,26 @@ mark.nm {
     box-shadow var(--tr);
   cursor: default;
   line-height: 1.4;
-  box-shadow: 2px 2px 0 var(--black);
+  box-shadow: 3px 3px 0 var(--black);
   border-radius: 0;
+  transform: rotate(calc(var(--rot, -1.5deg)));
+}
+
+.tag:nth-child(even) {
+  --rot: 2deg;
 }
 
 .tag:hover {
   background: var(--yellow);
   color: var(--black);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--black);
+  transform: translate(-3px, -3px) rotate(calc(var(--rot, -1.5deg) * -1));
+  box-shadow: 6px 6px 0 var(--black);
 }
 
 .tag_edu {
-  background: rgba(255, 200, 0, 0.12);
-  color: #c9a000;
-  border-color: rgba(255, 200, 0, 0.3);
+  background: var(--pink);
+  color: var(--black);
+  border-color: var(--black);
 }
 
 .tag_edu:hover {
@@ -649,16 +702,17 @@ mark.nm {
   max-width: 420px;
   background: var(--card);
   border: var(--bd);
-  box-shadow: var(--brut);
+  box-shadow: 8px 8px 0 var(--black);
   transition:
     box-shadow var(--tr),
     transform var(--tr);
   font-family: var(--font-mono);
+  transform: rotate(2deg);
 }
 
 .profile_card:hover {
-  box-shadow: var(--brut-lg);
-  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0 var(--black);
+  transform: translate(-4px, -4px) rotate(3deg);
 }
 
 .profile_card_body {
@@ -1117,7 +1171,17 @@ mark.nm {
   transition:
     box-shadow 0.28s var(--ease-out),
     transform 0.28s var(--ease-out);
-  box-shadow: var(--brut);
+  box-shadow: 6px 6px 0 var(--black);
+  transform: rotate(-1deg);
+}
+
+.project_card:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.project_card:hover {
+  box-shadow: 10px 10px 0 var(--black);
+  transform: translate(-4px, -4px) rotate(0deg);
 }
 
 .project_card:nth-child(1) {
