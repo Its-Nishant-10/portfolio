@@ -19,14 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const yr = $("#footer_year");
   if (yr) yr.textContent = new Date().getFullYear();
 
-  const progress_bar = $("#scroll_progress");
   const back_to_top_btn = $("#back_to_top");
 
   const on_scroll = () => {
     const st = window.scrollY;
-    const dh = document.documentElement.scrollHeight - window.innerHeight;
-    if (progress_bar)
-      progress_bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + "%";
     if (back_to_top_btn) back_to_top_btn.classList.toggle("visible", st > 320);
   };
   window.addEventListener("scroll", on_scroll, { passive: true });
@@ -204,9 +200,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ".strip_item": 75,
     ".contact_row": 60,
     ".social_icon": 45,
+    ".gh_repo_row": 50,
+    ".lc_diff_btn": 80,
+    ".currently_card": 60,
   };
   const generic_reveals = $$(
-    ".about_grid, .skills_dark_grid, .coding_split, .contact_layout, .hero_strip",
+    ".about_grid, .skills_dark_grid, .coding_block_full, .contact_layout, .hero_strip",
   );
 
   const reveal_ease = "cubic-bezier(0.22, 1, 0.36, 1)";
@@ -223,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.entries(stagger_groups).forEach(([sel, delay]) => {
           const children = $$(sel, e.target);
           if (!children.length) return;
-          const pinClearMs = 560;
           children.forEach((el, i) => {
             const rot =
               getComputedStyle(el).getPropertyValue("--pin-rot").trim() ||
@@ -298,6 +296,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  /* ── GitHub Repos ── */
+  const lang_colors = {
+    JavaScript: "#f1e05a",
+    CSS: "#563d7c",
+    HTML: "#e34c26",
+    Java: "#b07219",
+    Python: "#3572A5",
+    "C++": "#f34b7d",
+    C: "#555555",
+    TypeScript: "#2b7489",
+    Shell: "#89e051",
+  };
+
+  (async () => {
+    const list = $("#gh_repos_list");
+    if (!list) return;
+    try {
+      const res = await fetch(
+        "https://api.github.com/users/Its-Nishant-10/repos?sort=updated&per_page=20",
+      );
+      if (!res.ok) throw new Error("GitHub API error");
+      const repos = await res.json();
+      const filtered = repos
+        .filter((r) => !r.fork && r.name !== "Its-Nishant-10")
+        .sort((a, b) => b.stargazers_count - a.stargazers_count)
+        .slice(0, 3);
+      if (!filtered.length) {
+        list.innerHTML =
+          '<div class="gh_repos_loading">No public repos found.</div>';
+        return;
+      }
+      list.innerHTML = filtered
+        .map((r) => {
+          const lang = r.language || "";
+          const color = lang_colors[lang] || "#666";
+          const stars = r.stargazers_count || 0;
+          return `<a href="${r.html_url}" class="gh_repo_row" target="_blank" rel="noopener" aria-label="View ${r.name} on GitHub">
+            <div class="gh_repo_row_top">
+              <span class="gh_repo_row_name">${r.name}</span>
+              <span class="gh_repo_row_arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+            <div class="gh_repo_row_tags">
+              ${lang ? `<span class="gh_repo_tag"><span class="gh_tag_dot" style="background:${color}"></span>${lang}</span>` : ""}
+              ${stars > 0 ? `<span class="gh_repo_tag"><i class="fa-solid fa-star" style="color:var(--yellow)"></i> ${stars}</span>` : ""}
+            </div>
+          </a>`;
+        })
+        .join("");
+    } catch {
+      list.innerHTML =
+        '<div class="gh_repos_loading">Could not load repos — <a href="https://github.com/Its-Nishant-10" target="_blank" rel="noopener" style="color:#39d353">view on GitHub</a></div>';
+    }
+  })();
+
+  /* ── LeetCode Stats + Recent Submissions ── */
   (async () => {
     try {
       const res = await fetch(
@@ -310,26 +363,80 @@ document.addEventListener("DOMContentLoaded", () => {
         mediumSolved,
         hardSolved,
         totalQuestions,
-        totalEasy,
-        totalMedium,
-        totalHard,
       } = await res.json();
 
       const lc = $("#lc_total");
       if (lc)
-        lc.innerHTML = `${totalSolved}<span style="font-size:0.5em;opacity:0.6;font-weight:500;"> / ${totalQuestions}</span>`;
+        lc.innerHTML = `${totalSolved}<span class="lc_total_sub"> / ${totalQuestions}</span>`;
 
-      const set = (count_id, bar_id, solved, total) => {
-        const c = $("#" + count_id);
-        if (c) c.textContent = `${solved} / ${total}`;
-        const b = $("#" + bar_id);
-        if (b) b.style.width = (total > 0 ? (solved / total) * 100 : 0) + "%";
+      const set_btn = (id, val) => {
+        const el = $("#" + id);
+        if (el) el.textContent = val;
       };
-      set("lc_easy_count", "lc_easy_bar", easySolved, totalEasy);
-      set("lc_medium_count", "lc_medium_bar", mediumSolved, totalMedium);
-      set("lc_hard_count", "lc_hard_bar", hardSolved, totalHard);
-    } catch { }
+      set_btn("lc_easy_btn_count", easySolved);
+      set_btn("lc_medium_btn_count", mediumSolved);
+      set_btn("lc_hard_btn_count", hardSolved);
+    } catch {}
   })();
+
+  (async () => {
+    const list_el = $("#lc_recent_list");
+    if (!list_el) return;
+    try {
+      const res = await fetch(
+        "https://alfa-leetcode-api.onrender.com/its_nishant/submission?limit=5",
+      );
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      const subs = data.submission || [];
+      if (!subs.length) {
+        list_el.innerHTML =
+          '<div class="lc_recent_empty"><i class="fa-solid fa-inbox"></i> No recent submissions yet. Start solving!</div>';
+        return;
+      }
+      const recent = subs.slice(0, 3);
+      list_el.innerHTML = recent
+        .map((s) => {
+          const diff = (s.difficulty || "").toLowerCase();
+          const badge_cls =
+            diff === "easy"
+              ? "lc_recent_badge_easy"
+              : diff === "medium"
+                ? "lc_recent_badge_medium"
+                : "lc_recent_badge_hard";
+          const label = s.difficulty || "—";
+          const title = s.title || s.titleSlug || "Problem";
+          const time_ago = s.timestamp
+            ? time_since(Number(s.timestamp) * 1000)
+            : "";
+          const url = s.titleSlug
+            ? `https://leetcode.com/problems/${s.titleSlug}/`
+            : "#";
+          return `<a href="${url}" class="lc_recent_item" target="_blank" rel="noopener">
+            <span class="lc_recent_badge ${badge_cls}">${label}</span>
+            <span class="lc_recent_title">${title}</span>
+            ${time_ago ? `<span class="lc_recent_time">${time_ago}</span>` : ""}
+          </a>`;
+        })
+        .join("");
+    } catch {
+      list_el.innerHTML =
+        '<div class="lc_recent_empty"><i class="fa-solid fa-inbox"></i> No recent submissions yet. Start solving!</div>';
+    }
+  })();
+
+  function time_since(ts) {
+    const s = Math.floor((Date.now() - ts) / 1000);
+    if (s < 60) return "just now";
+    const m = Math.floor(s / 60);
+    if (m < 60) return m + "m ago";
+    const h = Math.floor(m / 60);
+    if (h < 24) return h + "h ago";
+    const d = Math.floor(h / 24);
+    if (d < 30) return d + "d ago";
+    const mo = Math.floor(d / 30);
+    return mo + "mo ago";
+  }
 
   const form = $("#contact_form");
   const toast = $("#toast");

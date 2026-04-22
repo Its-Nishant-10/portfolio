@@ -52,7 +52,7 @@
 </head>
 
 <body>
-  <div class="scroll_progress" id="scroll_progress"></div>
+
 
   <button class="back_to_top" id="back_to_top" aria-label="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -91,8 +91,7 @@
 
   <main>
     <section class="hero" id="hero">
-      <div class="fun-shape shape-circle"></div>
-      <div class="fun-shape shape-star">★</div>
+
       <div class="hero_grid">
         <div class="hero_left">
           <p class="hero_eyebrow">
@@ -139,7 +138,7 @@
                 </div>
               </div>
               <div class="profile_json">
-                <pre><code><span class="j_brace">{</span>
+                <pre><code contenteditable="true" spellcheck="false"><span class="j_brace">{</span>
   <span class="j_key">"name"</span><span class="j_punct">:</span>      <span class="j_str">"Nishant Nahar"</span><span class="j_punct">,</span>
   <span class="j_key">"role"</span><span class="j_punct">:</span>      <span class="j_str">"Developer &amp; Tinkerer"</span><span class="j_punct">,</span>
   <span class="j_key">"location"</span><span class="j_punct">:</span>  <span class="j_str">"Silchar, India 🇮🇳"</span><span class="j_punct">,</span>
@@ -419,9 +418,9 @@
                 <img src="contents/pfp.png" alt="Nishant Nahar" class="profile_photo" loading="lazy" />
               </div>
             </div>
+            <span class="about_handwritten">← that's me btw :)</span>
             <div class="about_chips">
-              <span class="about_chip"><i class="fa-solid fa-location-dot"></i> Silchar, Assam,
-                India 🇮🇳</span>
+              <span class="about_chip"><i class="fa-solid fa-location-dot"></i> Silchar, India 🇮🇳</span>
               <span class="about_chip"><i class="fa-solid fa-mug-hot"></i> Coffee-powered dev</span>
               <span class="about_chip"><i class="fa-solid fa-table-tennis-paddle-ball"></i> Squash
                 &amp; Badminton</span>
@@ -432,13 +431,14 @@
 
           <div class="about_text_col">
             <h3 class="about_heading">
+              <span class="about_title_badge">&lt;Engineer /&gt;</span><br />
               Builder. Tinkerer.<br /><mark class="nm">Problem solver.</mark>
             </h3>
             <p class="about_para">
-              Hi! I'm <strong>Nishant Nahar</strong> — someone who genuinely
-              loves pulling things apart to understand how they work, then
-              putting them back together better than before. Whether it's a
-              C++ algorithm, an automation workflow, or a web project, I'm at
+              Hi! I'm <strong>Nishant Nahar</strong>. I genuinely
+              love pulling things apart to understand how they work, then
+              putting them back together better than before. Whether it's optimizing a
+              C++ algorithm, automating workflows, or crafting responsive web apps, I'm at
               my best when I'm building from scratch.
             </p>
             <p class="about_para">
@@ -446,6 +446,28 @@
               should work flawlessly <em>and</em> feel great to use. I'm
               always learning, always shipping, always up for a challenge.
             </p>
+
+            <div class="about_currently">
+              <p class="about_currently_title"><i class="fa-solid fa-bolt"></i> Currently</p>
+              <div class="about_currently_flex">
+                <div class="currently_pill">
+                  <span class="currently_emoji">📚</span>
+                  <span class="currently_text"><b>Learning</b> DSA</span>
+                </div>
+                <div class="currently_pill">
+                  <span class="currently_emoji">🔨</span>
+                  <span class="currently_text"><b>Building</b> Portfolio</span>
+                </div>
+                <div class="currently_pill">
+                  <span class="currently_emoji">🎵</span>
+                  <span class="currently_text"><b>Vibing to</b> Lo-fi</span>
+                </div>
+                <div class="currently_pill">
+                  <span class="currently_emoji">☕</span>
+                  <span class="currently_text"><b>Fuel</b> Black coffee</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -559,69 +581,71 @@
           <span class="sd_live"><span class="sd_live_dot" aria-hidden="true"></span> Active</span>
         </div>
 
-        <div class="coding_split">
-          <div class="coding_block">
-            <div class="coding_block_hdr">
-              <span class="coding_block_icon gh_ic"><i class="fa-brands fa-github"></i></span>
-              <span class="coding_block_name">GitHub</span>
-              <a href="https://github.com/Its-Nishant-10" class="coding_block_ext" target="_blank" rel="noopener"><i
-                  class="fa-solid fa-arrow-up-right-from-square"></i>
-                Profile</a>
+        <!-- GitHub Block -->
+        <div class="coding_block coding_block_full">
+          <div class="coding_block_hdr">
+            <span class="coding_block_icon gh_ic"><i class="fa-brands fa-github"></i></span>
+            <span class="coding_block_name">GitHub</span>
+            <a href="https://github.com/Its-Nishant-10" class="coding_block_ext" target="_blank" rel="noopener"><i
+                class="fa-solid fa-arrow-up-right-from-square"></i>
+              Profile</a>
+          </div>
+          <div class="coding_cal_area">
+            <p class="coding_cal_label">
+              <i class="fa-solid fa-calendar-check"></i> Contribution Calendar
+            </p>
+            <div class="coding_cal_frame coding_cal_frame_styled">
+              <img src="https://ghchart.rshah.org/39d353/Its-Nishant-10" alt="GitHub Contribution Calendar"
+                loading="lazy" class="coding_cal_img" onerror="this.style.opacity = '0.2'" />
             </div>
-            <div class="coding_cal_area">
-              <p class="coding_cal_label">
-                <i class="fa-solid fa-calendar-check"></i> Contribution
-                Calendar
-              </p>
-              <div class="coding_cal_frame">
-                <img src="https://ghchart.rshah.org/39d353/Its-Nishant-10" alt="GitHub Contribution Calendar"
-                  loading="lazy" class="coding_cal_img" onerror="this.style.opacity = '0.2'" />
-              </div>
-              <p class="coding_cal_label" style="margin-top: 1rem">
-                <i class="fa-solid fa-chart-line"></i> Activity Graph
-              </p>
-              <div class="coding_cal_frame coding_graph_frame">
-                <img
-                  src="https://github-readme-activity-graph.vercel.app/graph?username=Its-Nishant-10&bg_color=0d1117&color=39d353&line=39d353&point=ffffff&area=true&area_color=39d353&hide_border=true&custom_title="
-                  alt="GitHub Activity Graph" loading="lazy" class="coding_cal_img"
-                  onerror="this.style.display = 'none'" />
+            <p class="coding_cal_label" style="margin-top: 1.5rem">
+              <i class="fa-solid fa-folder-open"></i> My Repositories
+            </p>
+            <div class="gh_repos_list" id="gh_repos_list">
+              <div class="gh_repos_loading">
+                <i class="fa-solid fa-spinner fa-spin"></i> Loading repos…
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="coding_block">
-            <div class="coding_block_hdr">
-              <span class="coding_block_icon lc_ic"><i class="fa-solid fa-code"></i></span>
-              <span class="coding_block_name">LeetCode</span>
-              <a href="https://leetcode.com/u/its_nishant/" class="coding_block_ext" target="_blank" rel="noopener">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Profile
-              </a>
-            </div>
-            <div class="lc_solved_area">
-              <div class="lc_big">
-                <span class="lc_number" id="lc_total">26<span style="font-size: 0.5em; opacity: 0.7; font-weight: 500">
-                    / 3860</span></span>
-                <span class="lc_solved_label"><i class="fa-solid fa-check-circle"></i> Problems
-                  Solved</span>
+        <!-- LeetCode Block -->
+        <div class="coding_block coding_block_full" style="margin-top: 2rem">
+          <div class="coding_block_hdr">
+            <span class="coding_block_icon lc_ic"><i class="fa-solid fa-code"></i></span>
+            <span class="coding_block_name">LeetCode</span>
+            <a href="https://leetcode.com/u/its_nishant/" class="coding_block_ext" target="_blank" rel="noopener">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Profile
+            </a>
+          </div>
+          <div class="lc_redesigned">
+            <div class="lc_stats_row">
+              <div class="lc_total_card">
+                <span class="lc_number" id="lc_total">26<span class="lc_total_sub"> / 3860</span></span>
+                <span class="lc_solved_label"><i class="fa-solid fa-check-circle"></i> Problems Solved</span>
               </div>
-              <div class="lc_breakdown">
-                <div class="lc_diff lc_easy">
-                  <span class="lc_diff_name">Easy</span>
-                  <span class="lc_diff_bar"><span class="lc_diff_fill" id="lc_easy_bar"
-                      style="width: 50%"></span></span>
-                  <span class="lc_diff_count" id="lc_easy_count">19 / 929</span>
-                </div>
-                <div class="lc_diff lc_medium">
-                  <span class="lc_diff_name">Medium</span>
-                  <span class="lc_diff_bar"><span class="lc_diff_fill" id="lc_medium_bar"
-                      style="width: 36%"></span></span>
-                  <span class="lc_diff_count" id="lc_medium_count">6 / 2019</span>
-                </div>
-                <div class="lc_diff lc_hard">
-                  <span class="lc_diff_name">Hard</span>
-                  <span class="lc_diff_bar"><span class="lc_diff_fill" id="lc_hard_bar"
-                      style="width: 14%"></span></span>
-                  <span class="lc_diff_count" id="lc_hard_count">1 / 912</span>
+              <div class="lc_diff_buttons">
+                <button class="lc_diff_btn lc_btn_easy" id="lc_btn_easy" type="button">
+                  <span class="lc_btn_label">Easy</span>
+                  <span class="lc_btn_count" id="lc_easy_btn_count">19</span>
+                </button>
+                <button class="lc_diff_btn lc_btn_medium" id="lc_btn_medium" type="button">
+                  <span class="lc_btn_label">Medium</span>
+                  <span class="lc_btn_count" id="lc_medium_btn_count">6</span>
+                </button>
+                <button class="lc_diff_btn lc_btn_hard" id="lc_btn_hard" type="button">
+                  <span class="lc_btn_label">Hard</span>
+                  <span class="lc_btn_count" id="lc_hard_btn_count">1</span>
+                </button>
+              </div>
+            </div>
+            <div class="lc_recent_area">
+              <p class="coding_cal_label">
+                <i class="fa-solid fa-clock-rotate-left"></i> Recent Submissions
+              </p>
+              <div class="lc_recent_list" id="lc_recent_list">
+                <div class="gh_repos_loading">
+                  <i class="fa-solid fa-spinner fa-spin"></i> Loading…
                 </div>
               </div>
             </div>
