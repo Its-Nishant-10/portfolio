@@ -352,6 +352,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ── LeetCode Stats + Recent Submissions ── */
   (async () => {
+    const set_btn = (id, val) => {
+      const el = $("#" + id);
+      if (el) el.textContent = val;
+    };
     try {
       const res = await fetch(
         "https://leetcode-api-faisalshohag.vercel.app/its_nishant",
@@ -369,14 +373,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (lc)
         lc.innerHTML = `${totalSolved}<span class="lc_total_sub"> / ${totalQuestions}</span>`;
 
-      const set_btn = (id, val) => {
-        const el = $("#" + id);
-        if (el) el.textContent = val;
-      };
       set_btn("lc_easy_btn_count", easySolved);
       set_btn("lc_medium_btn_count", mediumSolved);
       set_btn("lc_hard_btn_count", hardSolved);
-    } catch {}
+    } catch {
+      const lc = $("#lc_total");
+      if (lc)
+        lc.innerHTML = `0<span class="lc_total_sub"> / 0</span>`;
+      set_btn("lc_easy_btn_count", 0);
+      set_btn("lc_medium_btn_count", 0);
+      set_btn("lc_hard_btn_count", 0);
+    }
   })();
 
   (async () => {
