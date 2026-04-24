@@ -175,7 +175,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.proj-card');
 
 // Set initial state based on default active button
-const initialActiveFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'top';
+const initialActiveFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
 projectCards.forEach(card => {
   if (card.dataset.category.includes(initialActiveFilter)) {
     card.style.display = 'flex';
