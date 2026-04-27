@@ -6,7 +6,7 @@
 const scrollBar = document.getElementById('scroll-bar');
 function updateScrollBar() {
   const scrolled = window.scrollY;
-  const total    = document.documentElement.scrollHeight - window.innerHeight;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
   if (scrollBar) scrollBar.style.width = `${(scrolled / total) * 100}%`;
 }
 window.addEventListener('scroll', updateScrollBar, { passive: true });
@@ -23,7 +23,7 @@ window.addEventListener('scroll', () => {
    HAMBURGER MENU
 ══════════════════════════════════════════════════════════ */
 const hamburger = document.getElementById('hamburger');
-const navLinks  = document.getElementById('nav-links');
+const navLinks = document.getElementById('nav-links');
 
 hamburger?.addEventListener('click', () => {
   hamburger.classList.toggle('open');
@@ -51,7 +51,7 @@ document.addEventListener('click', (e) => {
 /* ══════════════════════════════════════════════════════════
    ACTIVE NAV HIGHLIGHT (Intersection Observer)
 ══════════════════════════════════════════════════════════ */
-const sections  = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
 const navObserver = new IntersectionObserver((entries) => {
@@ -80,40 +80,40 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 (async function loadLeetCode() {
   const USERNAME = 'its_nishant';
 
-  const loadingEl  = document.getElementById('lc-loading');
-  const statsEl    = document.getElementById('lc-stats');
-  const errorEl    = document.getElementById('lc-error');
+  const loadingEl = document.getElementById('lc-loading');
+  const statsEl = document.getElementById('lc-stats');
+  const errorEl = document.getElementById('lc-error');
 
-  const totalEl    = document.getElementById('lc-total-num');
-  const easyEl     = document.getElementById('lc-easy');
-  const mediumEl   = document.getElementById('lc-medium');
-  const hardEl     = document.getElementById('lc-hard');
-  const easyBar    = document.getElementById('lc-easy-bar');
-  const mediumBar  = document.getElementById('lc-medium-bar');
-  const hardBar    = document.getElementById('lc-hard-bar');
-  const rankEl     = document.getElementById('lc-rank');
+  const totalEl = document.getElementById('lc-total-num');
+  const easyEl = document.getElementById('lc-easy');
+  const mediumEl = document.getElementById('lc-medium');
+  const hardEl = document.getElementById('lc-hard');
+  const easyBar = document.getElementById('lc-easy-bar');
+  const mediumBar = document.getElementById('lc-medium-bar');
+  const hardBar = document.getElementById('lc-hard-bar');
+  const rankEl = document.getElementById('lc-rank');
 
   // ── attempt fetch from multiple endpoints ──────────────
   const ENDPOINTS = [
     {
-      url  : `https://leetcode-stats-api.herokuapp.com/${USERNAME}`,
+      url: `https://leetcode-stats-api.herokuapp.com/${USERNAME}`,
       parse: (j) => ({
-        total : j.totalSolved,
-        easy  : j.easySolved,
+        total: j.totalSolved,
+        easy: j.easySolved,
         medium: j.mediumSolved,
-        hard  : j.hardSolved,
-        rank  : j.ranking ?? null,
+        hard: j.hardSolved,
+        rank: j.ranking ?? null,
       }),
       check: (j) => typeof j.totalSolved === 'number',
     },
     {
-      url  : `https://alfa-leetcode-api.onrender.com/userProfile/${USERNAME}`,
+      url: `https://alfa-leetcode-api.onrender.com/userProfile/${USERNAME}`,
       parse: (j) => ({
-        total : j.solvedProblem ?? j.totalSolved,
-        easy  : j.easySolved   ?? 0,
+        total: j.solvedProblem ?? j.totalSolved,
+        easy: j.easySolved ?? 0,
         medium: j.mediumSolved ?? 0,
-        hard  : j.hardSolved   ?? 0,
-        rank  : j.ranking      ?? null,
+        hard: j.hardSolved ?? 0,
+        rank: j.ranking ?? null,
       }),
       check: (j) => typeof (j.solvedProblem ?? j.totalSolved) === 'number',
     },
@@ -125,7 +125,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 8000);
-      const res   = await fetch(ep.url, { signal: controller.signal });
+      const res = await fetch(ep.url, { signal: controller.signal });
       clearTimeout(timer);
 
       if (!res.ok) continue;
@@ -137,16 +137,16 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   // ── render ─────────────────────────────────────────────
   if (!stats) {
     loadingEl.style.display = 'none';
-    errorEl.style.display   = 'block';
+    errorEl.style.display = 'block';
     return;
   }
 
   const { total, easy, medium, hard, rank } = stats;
 
-  totalEl.textContent  = total;
-  easyEl.textContent   = easy;
+  totalEl.textContent = total;
+  easyEl.textContent = easy;
   mediumEl.textContent = medium;
-  hardEl.textContent   = hard;
+  hardEl.textContent = hard;
 
   if (rank) {
     rankEl.innerHTML = `Ranking: <strong>#${Number(rank).toLocaleString()}</strong>`;
@@ -159,13 +159,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   //   % fill = solved / approximate total per difficulty
   const CAPS = { easy: 820, medium: 1720, hard: 750 };
   setTimeout(() => {
-    easyBar.style.width   = `${Math.min(100, (easy   / CAPS.easy)   * 100).toFixed(1)}%`;
+    easyBar.style.width = `${Math.min(100, (easy / CAPS.easy) * 100).toFixed(1)}%`;
     mediumBar.style.width = `${Math.min(100, (medium / CAPS.medium) * 100).toFixed(1)}%`;
-    hardBar.style.width   = `${Math.min(100, (hard   / CAPS.hard)   * 100).toFixed(1)}%`;
+    hardBar.style.width = `${Math.min(100, (hard / CAPS.hard) * 100).toFixed(1)}%`;
   }, 300);
 
   loadingEl.style.display = 'none';
-  statsEl.style.display   = 'flex';
+  statsEl.style.display = 'flex';
 })();
 
 /* ══════════════════════════════════════════════════════════
