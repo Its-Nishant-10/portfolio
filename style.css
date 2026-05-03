@@ -807,9 +807,20 @@ h1 {
 }
 
 /* ─── ACTIVITY ──────────────────────────────────────────── */
+
+/* GitHub row — full width */
+.activity-row-github {
+  margin-bottom: 32px;
+}
+
+.activity-row-github .activity-card {
+  width: 100%;
+}
+
+/* LC + CF grid */
 .activity-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: stretch;
 }
@@ -927,118 +938,151 @@ h1 {
   font-weight: 700;
 }
 
-.lc-stats {
+/* ─── COMPACT STAT CARDS (LC + CF) ─────────────────────── */
+
+/* Header right side: rank tag + link */
+.card-head-right {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  min-width: 0;
-  max-width: 100%;
-  overflow: hidden;
+  align-items: center;
+  gap: 10px;
 }
 
-.lc-total {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  border-bottom: 3px solid #000;
-  padding-bottom: 20px;
-}
-
-.lc-big {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 1;
+/* Small inline rank tag in the header */
+.rank-inline {
   font-family: var(--mono);
-}
-
-.lc-total-label {
-  font-size: 0.85rem;
+  font-size: 0.62rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #555;
-  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--yellow);
+  border: 2px solid #000;
+  white-space: nowrap;
+  display: none; /* shown by JS when data arrives */
 }
 
-.lc-breakdown {
+.rank-inline.visible {
+  display: inline-flex;
+}
+
+/* CF rank inline — colours set by data-rank */
+.cf-rank-inline[data-rank="newbie"]           { background: #ccc;    color: #555;    display: inline-flex; }
+.cf-rank-inline[data-rank="pupil"]            { background: #90ee90; color: #1a4a1a; display: inline-flex; }
+.cf-rank-inline[data-rank="specialist"]       { background: #00c0c0; color: #003333; display: inline-flex; }
+.cf-rank-inline[data-rank="expert"]           { background: #5b9fe8; color: #fff;    display: inline-flex; }
+.cf-rank-inline[data-rank="candidate master"] { background: #c78ae8; color: #fff;    display: inline-flex; }
+.cf-rank-inline[data-rank="master"]           { background: #f8b33b; color: #000;    display: inline-flex; }
+.cf-rank-inline[data-rank="international master"] { background: #f09c3b; color: #000; display: inline-flex; }
+.cf-rank-inline[data-rank="grandmaster"]      { background: #ff4040; color: #fff;    display: inline-flex; }
+.cf-rank-inline[data-rank="international grandmaster"] { background: #cc0000; color: #fff; display: inline-flex; }
+.cf-rank-inline[data-rank="legendary grandmaster"] { background: #000; color: var(--yellow); display: inline-flex; }
+.cf-rank-inline[data-rank="unrated"]          { background: #eee;    color: #999;    display: inline-flex; }
+
+/* Card stat body */
+.stat-box {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 4px;
+  gap: 14px;
 }
 
-.lc-diff {
-  display: grid;
-  grid-template-columns: 60px 40px 1fr;
-  gap: 12px;
-  align-items: center;
+/* Total + label in one row */
+.stat-total-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #000;
+  padding-bottom: 12px;
 }
 
-.diff-label {
+.stat-big {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-big-sm {
+  font-family: var(--mono);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-meta {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+}
+
+.stat-sep {
+  font-size: 1rem;
+  color: #bbb;
+  font-weight: 400;
+}
+
+/* Difficulty pills row */
+.stat-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.spill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border: 2px solid #000;
+  min-width: 58px;
+  text-align: center;
+}
+
+.spill em {
+  font-family: var(--mono);
+  font-size: 0.6rem;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-style: normal;
 }
 
-.easy .diff-label {
-  color: #16a34a;
-}
-
-.medium .diff-label {
-  color: #d97706;
-}
-
-.hard .diff-label {
-  color: #dc2626;
-}
-
-.diff-count {
+.spill strong {
   font-family: var(--mono);
+  font-size: 1.05rem;
   font-weight: 800;
-  font-size: 1rem;
 }
 
-.diff-bar {
-  height: 16px;
-  background: #eee;
-  border: 2px solid #000;
-  overflow: hidden;
-  border-radius: 0;
-  box-shadow: 2px 2px 0 #000;
-}
+.spill.easy em   { color: #16a34a; }
+.spill.medium em { color: #d97706; }
+.spill.hard em   { color: #dc2626; }
 
-.diff-fill {
-  height: 100%;
-  transition: width 0.8s ease;
-  border-right: 2px solid #000;
-}
+.spill.easy   { border-color: #16a34a; background: rgba(22,163,74,0.06);  }
+.spill.medium { border-color: #d97706; background: rgba(217,119,6,0.06);  }
+.spill.hard   { border-color: #dc2626; background: rgba(220,38,38,0.06);  }
 
-.easy .diff-fill {
-  background: #16a34a;
-}
-
-.medium .diff-fill {
-  background: #d97706;
-}
-
-.hard .diff-fill {
-  background: #dc2626;
-}
-
-.lc-rank {
+/* CF info row: Rating · Max · Contrib inline */
+.cf-info-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
   font-family: var(--mono);
-  font-size: 0.85rem;
-  color: #333;
-  border-top: 3px solid #000;
-  padding-top: 16px;
-  margin-top: 8px;
+  font-size: 0.72rem;
+  color: #555;
+  border-top: 2px solid #000;
+  padding-top: 10px;
 }
 
-.lc-rank strong {
+.cf-info-row strong {
   color: #000;
   font-weight: 800;
-  font-size: 0.95rem;
 }
+
+
 
 /* ─── ABOUT ─────────────────────────────────────────────── */
 .about-grid {
@@ -1390,6 +1434,10 @@ footer {
     gap: 28px;
   }
 
+  .activity-row-github {
+    margin-bottom: 28px;
+  }
+
   .hero {
     min-height: auto;
     padding: 32px 0 40px;
@@ -1709,6 +1757,10 @@ footer {
   }
 
   /* Activity */
+  .activity-row-github {
+    margin-bottom: 20px !important;
+  }
+
   .activity-grid {
     grid-template-columns: 1fr !important;
     gap: 24px !important;
@@ -1727,50 +1779,27 @@ footer {
     font-size: 0.85rem !important;
   }
 
-  .lc-big {
-    font-size: 2.6rem !important;
-    margin-bottom: 4px !important;
+  .stat-big {
+    font-size: 2rem !important;
   }
 
-  .lc-total-label {
-    font-size: 0.68rem !important;
+  .stat-big-sm {
+    font-size: 1.2rem !important;
   }
 
-  .lc-total {
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-    border-bottom-width: 2px !important;
+  .stat-total-row {
+    padding-bottom: 8px !important;
   }
 
-  .lc-diff {
-    gap: 4px 10px !important;
-  }
-
-  .diff-label {
-    font-size: 0.65rem !important;
-    width: 45px !important;
-  }
-
-  .diff-count {
-    font-size: 0.8rem !important;
-  }
-
-  .diff-bar {
-    height: 8px !important;
-    margin-top: 2px !important;
-    box-shadow: 2px 2px 0 #000 !important;
+  .spill {
+    min-width: 50px !important;
+    padding: 6px 10px !important;
   }
 
   .gh-calendar-wrap {
     margin-top: 10px;
     border-width: 2px !important;
     padding: 8px 6px !important;
-  }
-
-  .lc-rank {
-    border-top-width: 2px !important;
-    padding-top: 10px;
-    font-size: 0.75rem !important;
   }
 
   /* About */

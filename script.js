@@ -74,24 +74,19 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ══════════════════════════════════════════════════════════
    LEETCODE LIVE STATS
-   Tries two public APIs in order; falls back to a static
-   display if both are unavailable.
+   Tries two public APIs in order; falls back to error state
+   if both are unavailable.
 ══════════════════════════════════════════════════════════ */
 (async function loadLeetCode() {
   const USERNAME = 'its_nishant';
 
   const loadingEl = document.getElementById('lc-loading');
-  const statsEl = document.getElementById('lc-stats');
-  const errorEl = document.getElementById('lc-error');
-
-  const totalEl = document.getElementById('lc-total-num');
-  const easyEl = document.getElementById('lc-easy');
-  const mediumEl = document.getElementById('lc-medium');
-  const hardEl = document.getElementById('lc-hard');
-  const easyBar = document.getElementById('lc-easy-bar');
-  const mediumBar = document.getElementById('lc-medium-bar');
-  const hardBar = document.getElementById('lc-hard-bar');
-  const rankEl = document.getElementById('lc-rank');
+  const statsEl   = document.getElementById('lc-stats');
+  const errorEl   = document.getElementById('lc-error');
+  const totalEl   = document.getElementById('lc-total-num');
+  const easyEl    = document.getElementById('lc-easy');
+  const mediumEl  = document.getElementById('lc-medium');
+  const hardEl    = document.getElementById('lc-hard');
 
   // ── attempt fetch from multiple endpoints ──────────────
   const ENDPOINTS = [
@@ -143,29 +138,127 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const { total, easy, medium, hard, rank } = stats;
 
-  totalEl.textContent = total;
-  easyEl.textContent = easy;
-  mediumEl.textContent = medium;
-  hardEl.textContent = hard;
+  if (totalEl)  totalEl.textContent  = total;
+  if (easyEl)   easyEl.textContent   = easy;
+  if (mediumEl) mediumEl.textContent = medium;
+  if (hardEl)   hardEl.textContent   = hard;
 
-  if (rank) {
-    rankEl.innerHTML = `Ranking: <strong>#${Number(rank).toLocaleString()}</strong>`;
-  } else {
-    rankEl.innerHTML = `Profile: <strong><a href="https://leetcode.com/u/${USERNAME}/" target="_blank"
-      rel="noopener" style="color:#000;text-decoration:underline;">@${USERNAME} ↗</a></strong>`;
+  // Update hero stat counter with live LC count
+  const heroLcEl = document.getElementById('hero-lc-num');
+  if (heroLcEl) heroLcEl.textContent = total + '+';
+
+  // Show ranking inline in the header
+  const rankEl = document.getElementById('lc-rank');
+  if (rankEl) {
+    rankEl.textContent = rank ? `#${Number(rank).toLocaleString()}` : '';
+    if (rank) rankEl.classList.add('visible');
   }
-
-  // ── animate bars after a short delay ──────────────────
-  //   % fill = solved / approximate total per difficulty
-  const CAPS = { easy: 820, medium: 1720, hard: 750 };
-  setTimeout(() => {
-    easyBar.style.width = `${Math.min(100, (easy / CAPS.easy) * 100).toFixed(1)}%`;
-    mediumBar.style.width = `${Math.min(100, (medium / CAPS.medium) * 100).toFixed(1)}%`;
-    hardBar.style.width = `${Math.min(100, (hard / CAPS.hard) * 100).toFixed(1)}%`;
-  }, 300);
 
   loadingEl.style.display = 'none';
   statsEl.style.display = 'flex';
+})();
+
+
+/* ══════════════════════════════════════════════════════════
+   CODEFORCES LIVE STATS
+   user.info  → rating / rank / contribution
+   user.rating → contest count
+   user.status → unique accepted problems grouped by CF rating:
+     Easy  : rating ≤ 1199  (or unrated)
+     Medium: rating 1200–1899
+     Hard  : rating ≥ 1900
+══════════════════════════════════════════════════════════ */
+(async function loadCodeforces() {
+  const CF_HANDLE = 'yours_nishant';
+
+  const cfLoading     = document.getElementById('cf-loading');
+  const cfStats       = document.getElementById('cf-stats');
+  const cfError       = document.getElementById('cf-error');
+  const cfTotalEl     = document.getElementById('cf-total-num');
+  const cfEasyEl      = document.getElementById('cf-easy');
+  const cfMedEl       = document.getElementById('cf-medium');
+  const cfHardEl      = document.getElementById('cf-hard');
+  const cfRatingEl    = document.getElementById('cf-rating');
+  const cfMaxRatingEl = document.getElementById('cf-max-rating');
+  const cfRankTextEl  = document.getElementById('cf-rank-text');
+  const cfRankBadgeEl = document.getElementById('cf-rank-badge');
+  const cfContestsEl  = document.getElementById('cf-contests');
+  const cfContribEl   = document.getElementById('cf-contribution');
+
+  const hide = (el) => el && (el.style.display = 'none');
+  const show = (el) => el && (el.style.display = '');
+
+  async function cfFetch(url) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 10000);
+    try {
+      const r = await fetch(url, { signal: ctrl.signal });
+      clearTimeout(t);
+      if (!r.ok) return null;
+      return await r.json();
+    } catch (_) { clearTimeout(t); return null; }
+  }
+
+  // Parallel fetch all three endpoints
+  const [infoData, ratingData, statusData] = await Promise.all([
+    cfFetch(`https://codeforces.com/api/user.info?handles=${CF_HANDLE}`),
+    cfFetch(`https://codeforces.com/api/user.rating?handle=${CF_HANDLE}`),
+    cfFetch(`https://codeforces.com/api/user.status?handle=${CF_HANDLE}&from=1&count=10000`),
+  ]);
+
+  if (!infoData || infoData.status !== 'OK' || !infoData.result?.[0]) {
+    hide(cfLoading); show(cfError); return;
+  }
+
+  const u = infoData.result[0];
+
+  // ── Count unique accepted problems, group by CF rating tier ──
+  let easy = 0, medium = 0, hard = 0;
+  if (statusData?.status === 'OK') {
+    const seen = new Set();
+    for (const s of statusData.result) {
+      if (s.verdict !== 'OK') continue;
+      const key = `${s.problem.contestId ?? ''}:${s.problem.index}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const r = s.problem.rating ?? 0; // unrated problems go to Easy
+      if (r === 0 || r <= 1199) easy++;
+      else if (r <= 1899)       medium++;
+      else                      hard++;
+    }
+  }
+  const total = easy + medium + hard;
+
+  // ── Render problems solved ─────────────────────────────
+  if (cfTotalEl) cfTotalEl.textContent = total || '—';
+  if (cfEasyEl)  cfEasyEl.textContent  = easy;
+  if (cfMedEl)   cfMedEl.textContent   = medium;
+  if (cfHardEl)  cfHardEl.textContent  = hard;
+
+  // ── Render rating & rank ───────────────────────────────
+  const currentRating = u.rating;
+  const maxRating     = u.maxRating;
+  const rank          = (u.rank ?? 'unrated').toLowerCase();
+
+  if (cfRatingEl) {
+    cfRatingEl.textContent = currentRating ?? 'N/A';
+    if (!currentRating) cfRatingEl.classList.add('unrated');
+  }
+  if (cfMaxRatingEl) cfMaxRatingEl.textContent = maxRating ?? 'N/A';
+
+  const displayRank = currentRating ? rank : 'unrated';
+  if (cfRankBadgeEl) cfRankBadgeEl.setAttribute('data-rank', displayRank);
+  if (cfRankTextEl) {
+    cfRankTextEl.textContent = displayRank === 'unrated' ? 'Unrated'
+      : displayRank.charAt(0).toUpperCase() + displayRank.slice(1);
+  }
+
+  const contestCount = ratingData?.status === 'OK' ? ratingData.result.length : '—';
+  if (cfContestsEl) cfContestsEl.textContent = contestCount;
+  if (cfContribEl)  cfContribEl.textContent  = u.contribution ?? 0;
+
+  hide(cfLoading);
+  show(cfStats);
 })();
 
 /* ══════════════════════════════════════════════════════════

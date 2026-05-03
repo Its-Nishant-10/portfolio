@@ -55,13 +55,12 @@
           </div>
           <h1>NISHANT<br><span class="hero-accent">NAHAR.</span></h1>
           <p class="hero-role">Automation · ML · Competitive Programming</p>
-          <p class="hero-tagline">I build practical apps focused on automation, performance, and usability. Currently in
-            3rd-year B.Tech — learning by doing.</p>
+          <p class="hero-tagline">B.Tech 3rd year — I ship real things: automation bots, ML pipelines, and clean web apps. Fast learner, practical builder.</p>
           <div class="hero-stats">
-            <div class="hstat"><strong>3+</strong><span>Projects</span></div>
-            <div class="hstat"><strong>4+</strong><span>Languages</span></div>
+            <div class="hstat"><strong>4+</strong><span>Projects</span></div>
+            <div class="hstat"><strong>C++</strong><span>Main Lang</span></div>
+            <div class="hstat"><strong id="hero-lc-num">12+</strong><span>LC Solved</span></div>
             <div class="hstat"><strong>2+</strong><span>Yrs Coding</span></div>
-            <div class="hstat"><strong>∞</strong><span>Curiosity</span></div>
           </div>
           <div class="hero-cta">
             <a href="#projects" class="btn btn-primary">My Work</a>
@@ -395,63 +394,84 @@
       <div class="container">
         <div class="section-header">
           <h2>Coding Activity <span class="section-num">03</span></h2>
-          <p class="section-sub">Live stats — straight from GitHub and LeetCode.</p>
+          <p class="section-sub">Live stats — GitHub, LeetCode &amp; Codeforces.</p>
         </div>
 
-        <div class="activity-grid">
-
+        <!-- Row 1: GitHub full width -->
+        <div class="activity-row-github">
           <div class="activity-card activity-github">
             <div class="activity-card-head">
               <span><i class="fa-brands fa-github"></i> GitHub</span>
               <a href="https://github.com/Its-Nishant-10" target="_blank" rel="noopener">@Its-Nishant-10 ↗</a>
             </div>
-
             <p class="activity-label">Contribution Calendar</p>
             <div class="gh-graph-wrap gh-calendar-wrap">
               <img src="https://ghchart.rshah.org/FFD600/Its-Nishant-10" alt="GitHub Contribution Graph"
                 class="gh-graph-calendar" />
             </div>
           </div>
+        </div>
 
+        <!-- Row 2: LeetCode + Codeforces -->
+        <div class="activity-grid">
+
+          <!-- LeetCode -->
           <div class="activity-card activity-leetcode">
             <div class="activity-card-head">
               <span><i class="fa-solid fa-code"></i> LeetCode</span>
-              <a href="https://leetcode.com/u/its_nishant/" target="_blank" rel="noopener">@its_nishant ↗</a>
+              <div class="card-head-right">
+                <span class="rank-inline" id="lc-rank"></span>
+                <a href="https://leetcode.com/u/its_nishant/" target="_blank" rel="noopener">@its_nishant ↗</a>
+              </div>
             </div>
-            <div class="lc-loading" id="lc-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading stats…</div>
-            <div class="lc-stats" id="lc-stats" style="display:none;">
-              <div class="lc-total">
-                <span id="lc-total-num" class="lc-big">—</span>
-                <span class="lc-total-label">Problems Solved</span>
+            <div class="lc-loading" id="lc-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading…</div>
+            <div class="stat-box" id="lc-stats" style="display:none;">
+              <div class="stat-total-row">
+                <span id="lc-total-num" class="stat-big">—</span>
+                <span class="stat-meta">Solved</span>
               </div>
-              <div class="lc-breakdown">
-                <div class="lc-diff easy">
-                  <span class="diff-label">Easy</span>
-                  <span class="diff-count" id="lc-easy">—</span>
-                  <div class="diff-bar">
-                    <div class="diff-fill" id="lc-easy-bar" style="width:0%"></div>
-                  </div>
-                </div>
-                <div class="lc-diff medium">
-                  <span class="diff-label">Medium</span>
-                  <span class="diff-count" id="lc-medium">—</span>
-                  <div class="diff-bar">
-                    <div class="diff-fill" id="lc-medium-bar" style="width:0%"></div>
-                  </div>
-                </div>
-                <div class="lc-diff hard">
-                  <span class="diff-label">Hard</span>
-                  <span class="diff-count" id="lc-hard">—</span>
-                  <div class="diff-bar">
-                    <div class="diff-fill" id="lc-hard-bar" style="width:0%"></div>
-                  </div>
-                </div>
+              <div class="stat-pills">
+                <span class="spill easy"><em>Easy</em><strong id="lc-easy">—</strong></span>
+                <span class="spill medium"><em>Med</em><strong id="lc-medium">—</strong></span>
+                <span class="spill hard"><em>Hard</em><strong id="lc-hard">—</strong></span>
               </div>
-              <div class="lc-rank" id="lc-rank">—</div>
             </div>
             <div class="lc-error" id="lc-error" style="display:none;">
-              <span>⚠ Couldn't load — <a href="https://leetcode.com/u/its_nishant/" target="_blank">view on LeetCode
-                  ↗</a></span>
+              <span>⚠ Couldn't load — <a href="https://leetcode.com/u/its_nishant/" target="_blank">view on LeetCode ↗</a></span>
+            </div>
+          </div>
+
+          <!-- Codeforces -->
+          <div class="activity-card activity-codeforces">
+            <div class="activity-card-head">
+              <span><i class="fa-solid fa-chess-knight"></i> Codeforces</span>
+              <div class="card-head-right">
+                <span class="rank-inline cf-rank-inline" id="cf-rank-badge" data-rank="unrated"><span id="cf-rank-text">—</span></span>
+                <a href="https://codeforces.com/profile/yours_nishant" target="_blank" rel="noopener">@yours_nishant ↗</a>
+              </div>
+            </div>
+            <div class="cf-loading" id="cf-loading"><i class="fa-solid fa-spinner fa-spin"></i> Loading…</div>
+            <div class="stat-box" id="cf-stats" style="display:none;">
+              <div class="stat-total-row">
+                <span id="cf-total-num" class="stat-big">—</span>
+                <span class="stat-meta">Solved</span>
+                <span class="stat-sep">·</span>
+                <span id="cf-contests" class="stat-big-sm">—</span>
+                <span class="stat-meta">Contests</span>
+              </div>
+              <div class="stat-pills">
+                <span class="spill easy"><em>Easy</em><strong id="cf-easy">—</strong></span>
+                <span class="spill medium"><em>Med</em><strong id="cf-medium">—</strong></span>
+                <span class="spill hard"><em>Hard</em><strong id="cf-hard">—</strong></span>
+              </div>
+              <div class="cf-info-row">
+                <span>Rating: <strong id="cf-rating">—</strong></span>
+                <span>Max: <strong id="cf-max-rating">—</strong></span>
+                <span>Contrib: <strong id="cf-contribution">—</strong></span>
+              </div>
+            </div>
+            <div class="cf-error" id="cf-error" style="display:none;">
+              <span>⚠ Couldn't load — <a href="https://codeforces.com/profile/yours_nishant" target="_blank">view on CF ↗</a></span>
             </div>
           </div>
 
@@ -498,8 +518,7 @@
               </div>
               <div class="ab-block highlight-block">
                 <span class="ab-label">Goal</span>
-                Looking for internships. I don't have years of experience, but I'm fast, focused, and unafraid of hard
-                problems.
+                Looking for an internship where I can contribute from day one. I pick up new stacks fast, write clean code, and don't need hand-holding — I just need the opportunity.
               </div>
             </div>
 
@@ -559,6 +578,13 @@
                 <div>
                   <div class="ci-label">LeetCode</div>
                   <div class="ci-val">its_nishant</div>
+                </div>
+              </a>
+              <a href="https://codeforces.com/profile/yours_nishant" target="_blank" rel="noopener" class="contact-item">
+                <i class="fa-solid fa-chess-knight"></i>
+                <div>
+                  <div class="ci-label">Codeforces</div>
+                  <div class="ci-val">yours_nishant</div>
                 </div>
               </a>
             </div>
