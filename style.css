@@ -1,17 +1,17 @@
-/* ─── RESET & ROOT ─────────────────────────────────────── */
+
 :root {
-  --bg: #fffdf5; /* HackNova neo-white */
+  --bg: #fffdf5; 
   --dark: #121212;
-  --text-dark: #121212; /* HackNova neo-black */
+  --text-dark: #121212; 
   --tint: #f5f5f5;
-  --yellow: #fbff48; /* HackNova neo-yellow */
+  --yellow: #fbff48; 
   --neo-pink: #ff70a6;
   --neo-blue: #3b82f6;
   --neo-green: #33ff57;
   --neo-orange: #ff9f1c;
   --border: 3px solid #121212;
   --shadow: 6px 6px 0 #121212;
-  --shadow-hover: 10px 10px 0 #121212; /* Aggressive pop-up shadow */
+  --shadow-hover: 10px 10px 0 #121212; 
   --w: 1140px;
   --tr: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --mono: 'JetBrains Mono', monospace;
@@ -30,7 +30,7 @@ html {
 body {
   font-family: var(--head);
   background-color: var(--bg);
-  /* HackNova signature background */
+  
   background-image: radial-gradient(var(--dark) 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px), linear-gradient(#e5e5e5 1px, transparent 1px);
   background-size: 40px 40px, 100px 100px, 100px 100px;
   color: var(--dark);
@@ -66,7 +66,7 @@ img { display: block; max-width: 100%; height: auto; }
   border-right: var(--border);
 }
 
-/* ─── UTILITIES ─────────────────────────────────────────── */
+
 .container {
   max-width: var(--w);
   margin: 0 auto;
@@ -104,9 +104,9 @@ img { display: block; max-width: 100%; height: auto; }
   align-items: center;
 }
 
-/* Limit colors */
+
 .section-tinted {
-  /* Removed solid background so global grid is visible */
+  
 }
 
 
@@ -181,7 +181,7 @@ h1:hover {
 }
 .btn-primary { background: var(--yellow); }
 
-/* ─── NAVBAR ────────────────────────────────────────────── */
+
 #navbar {
   position: sticky; top: 0; z-index: 900;
   background: var(--bg);
@@ -218,7 +218,7 @@ h1:hover {
 }
 .hamburger span { display: block; width: 24px; height: 3px; background: var(--dark); }
 
-/* ─── HERO ──────────────────────────────────────────────── */
+
 .hero-grid {
   display: grid; grid-template-columns: 1fr 0.8fr; gap: 48px; align-items: center;
 }
@@ -276,7 +276,7 @@ h1:hover {
 .j-s { color: #555; }
 .j-b { color: var(--dark); }
 
-/* ─── SKILLS ────────────────────────────────────────────── */
+
 .skills-blocks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .skill-block {
   padding: 24px; border: var(--border); background: #fff;
@@ -303,7 +303,7 @@ h1:hover {
 }
 .pill.highlight { background: var(--yellow); }
 
-/* ─── PROJECTS ──────────────────────────────────────────── */
+
 .project-filters { display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap; }
 .filter-btn {
   font-family: var(--mono); font-size: 0.8rem; font-weight: 700;
@@ -389,7 +389,7 @@ h1:hover {
   transform: translate(-2px, -2px); box-shadow: var(--shadow-hover);
 }
 
-/* Misaligned Other Works Tag */
+
 .other-works-tag {
   display: flex;
   flex-direction: column;
@@ -415,7 +415,7 @@ h1:hover {
 .other-works-tag h3 { font-size: 1.4rem; font-weight: 900; text-transform: uppercase; line-height: 1.1; color: #fff; }
 .other-works-tag p { font-family: var(--mono); font-size: 0.9rem; font-weight: 600; color: #fff; opacity: 0.9; }
 
-/* ─── ACHIEVEMENTS ──────────────────────────────────────── */
+
 .term-window {
   border: var(--border); background: #121212; box-shadow: var(--shadow);
   max-width: 600px; margin: 0 auto; overflow: hidden;
@@ -440,7 +440,7 @@ h1:hover {
 .term-text .blink { animation: blink 1s step-end infinite; }
 
 
-/* ─── CODING ACTIVITY ───────────────────────────────────── */
+
 .activity-row-github { margin-bottom: 24px; }
 .activity-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
@@ -498,7 +498,7 @@ h1:hover {
 
 .lc-loading, .cf-loading { font-family: var(--mono); font-weight: 600; padding: 24px 0; }
 
-/* ─── ABOUT ─────────────────────────────────────────────── */
+
 .about-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
 
 .about-photo-frame {
@@ -538,7 +538,7 @@ h1:hover {
 }
 .fact-val { padding: 16px; font-weight: 500; color: var(--dark);}
 
-/* ─── CONTACT ───────────────────────────────────────────── */
+
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -585,7 +585,7 @@ h1:hover {
 .contact-resume-card h3 { font-size: 1.5rem; font-weight: 800; text-transform: uppercase; }
 .contact-resume-card .btn { width: 100%; text-align: center; }
 
-/* ─── BACK TO TOP ───────────────────────────────────────── */
+
 .back-top {
   position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px;
   background: var(--yellow); border: var(--border); box-shadow: var(--shadow);
@@ -596,7 +596,7 @@ h1:hover {
 .back-top.show { opacity: 1; visibility: visible; }
 .back-top:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-hover); background: var(--neo-pink);}
 
-/* ─── FOOTER ────────────────────────────────────────────── */
+
 footer {
   padding: 80px 0 40px; border-top: var(--border); background: var(--dark); color: #fff;
 }
@@ -627,7 +627,7 @@ footer {
 .footer-divider { height: 2px; background: #333; margin-bottom: 30px; }
 .footer-info { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 0.8rem; color: #888; }
 
-/* ─── RESPONSIVE ────────────────────────────────────────── */
+
 @media (max-width: 900px) {
   .hero-grid, .skills-blocks, .projects-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   
@@ -664,7 +664,7 @@ footer {
   .stat-big { font-size: 2rem; }
   .stat-big-sm { font-size: 1.5rem; }
 }
-/* ─── MARQUEE ───────────────────────────────────────────── */
+
 .marquee-wrap {
   background: var(--dark);
   color: #fff;
@@ -699,7 +699,7 @@ footer {
 .marquee-item { display: flex; align-items: center; gap: 60px; }
 .marquee-item span { color: var(--yellow); font-size: 2.5rem; }
 
-/* ─── STICKERS ─────────────────────────────────────────── */
+
 .sticker {
   position: absolute;
   padding: 8px 16px;

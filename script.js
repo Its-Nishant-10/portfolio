@@ -1,8 +1,6 @@
 'use strict';
 
-/* ══════════════════════════════════════════════════════════
-   SCROLL PROGRESS BAR
-══════════════════════════════════════════════════════════ */
+
 const scrollBar = document.getElementById('scroll-bar');
 function updateScrollBar() {
   const scrolled = window.scrollY;
@@ -11,17 +9,13 @@ function updateScrollBar() {
 }
 window.addEventListener('scroll', updateScrollBar, { passive: true });
 
-/* ══════════════════════════════════════════════════════════
-   BACK TO TOP
-══════════════════════════════════════════════════════════ */
+
 const backTop = document.getElementById('back-top');
 window.addEventListener('scroll', () => {
   backTop?.classList.toggle('show', window.scrollY > 500);
 }, { passive: true });
 
-/* ══════════════════════════════════════════════════════════
-   HAMBURGER MENU
-══════════════════════════════════════════════════════════ */
+
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 
@@ -31,7 +25,7 @@ hamburger?.addEventListener('click', () => {
   hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
 });
 
-// Close on link click
+
 navLinks?.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     hamburger.classList.remove('open');
@@ -40,7 +34,7 @@ navLinks?.querySelectorAll('a').forEach(a => {
   });
 });
 
-// Close on outside click
+
 document.addEventListener('click', (e) => {
   if (!hamburger?.contains(e.target) && !navLinks?.contains(e.target)) {
     hamburger?.classList.remove('open');
@@ -48,9 +42,7 @@ document.addEventListener('click', (e) => {
   }
 });
 
-/* ══════════════════════════════════════════════════════════
-   ACTIVE NAV HIGHLIGHT (Intersection Observer)
-══════════════════════════════════════════════════════════ */
+
 const sections = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
@@ -66,17 +58,11 @@ const navObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => navObserver.observe(s));
 
-/* ══════════════════════════════════════════════════════════
-   FOOTER YEAR
-══════════════════════════════════════════════════════════ */
+
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ══════════════════════════════════════════════════════════
-   LEETCODE LIVE STATS
-   Tries two public APIs in order; falls back to error state
-   if both are unavailable.
-══════════════════════════════════════════════════════════ */
+
 (async function loadLeetCode() {
   const USERNAME = 'its_nishant';
 
@@ -88,7 +74,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   const mediumEl  = document.getElementById('lc-medium');
   const hardEl    = document.getElementById('lc-hard');
 
-  // ── attempt fetch from multiple endpoints ──────────────
+  
   const ENDPOINTS = [
     {
       url: `https://leetcode-stats-api.herokuapp.com/${USERNAME}`,
@@ -126,10 +112,10 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
       if (!res.ok) continue;
       const json = await res.json();
       if (ep.check(json)) { stats = ep.parse(json); break; }
-    } catch (_) { /* try next */ }
+    } catch (_) {  }
   }
 
-  // ── render ─────────────────────────────────────────────
+  
   if (!stats) {
     loadingEl.style.display = 'none';
     errorEl.style.display = 'block';
@@ -139,18 +125,21 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   const { total, easy, medium, hard, rank } = stats;
 
   if (totalEl)  totalEl.textContent  = total;
+  if (easyEl)   easyEl.textContent   = easy;
+  if (mediumEl) mediumEl.textContent = medium;
+  if (hardEl)   hardEl.textContent   = hard;
   
-  // Rank in the pill
+  
   const rankBadgeEl = document.getElementById('lc-rank-badge');
   if (rankBadgeEl) {
     rankBadgeEl.textContent = rank ? `#${Number(rank).toLocaleString()}` : '—';
   }
 
-  // Update hero stat counter with live LC count
+  
   const heroLcEl = document.getElementById('hero-lc-num');
   if (heroLcEl) heroLcEl.textContent = total + '+';
 
-  // Show ranking inline in the header
+  
   const rankEl = document.getElementById('lc-rank');
   if (rankEl) {
     rankEl.textContent = rank ? `#${Number(rank).toLocaleString()}` : '';
@@ -162,15 +151,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
 
 
-/* ══════════════════════════════════════════════════════════
-   CODEFORCES LIVE STATS
-   user.info  → rating / rank / contribution
-   user.rating → contest count
-   user.status → unique accepted problems grouped by CF rating:
-     Easy  : rating ≤ 1199  (or unrated)
-     Medium: rating 1200–1899
-     Hard  : rating ≥ 1900
-══════════════════════════════════════════════════════════ */
+
 (async function loadCodeforces() {
   const CF_HANDLE = 'yours_nishant';
 
@@ -202,7 +183,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     } catch (_) { clearTimeout(t); return null; }
   }
 
-  // Parallel fetch all three endpoints
+  
   const [infoData, ratingData, statusData] = await Promise.all([
     cfFetch(`https://codeforces.com/api/user.info?handles=${CF_HANDLE}`),
     cfFetch(`https://codeforces.com/api/user.rating?handle=${CF_HANDLE}`),
@@ -215,7 +196,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   const u = infoData.result[0];
 
-  // ── Count unique accepted problems, group by CF rating tier ──
+  
   let easy = 0, medium = 0, hard = 0;
   if (statusData?.status === 'OK') {
     const seen = new Set();
@@ -224,7 +205,7 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
       const key = `${s.problem.contestId ?? ''}:${s.problem.index}`;
       if (seen.has(key)) continue;
       seen.add(key);
-      const r = s.problem.rating ?? 0; // unrated problems go to Easy
+      const r = s.problem.rating ?? 0; 
       if (r === 0 || r <= 1199) easy++;
       else if (r <= 1899)       medium++;
       else                      hard++;
@@ -232,13 +213,13 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   }
   const total = easy + medium + hard;
 
-  // ── Render problems solved ─────────────────────────────
+  
   if (cfTotalEl) cfTotalEl.textContent = total || '—';
   if (cfEasyEl)  cfEasyEl.textContent  = easy;
   if (cfMedEl)   cfMedEl.textContent   = medium;
   if (cfHardEl)  cfHardEl.textContent  = hard;
 
-  // ── Render rating & rank ───────────────────────────────
+  
   const currentRating = u.rating;
   const maxRating     = u.maxRating;
   const rank          = (u.rank ?? 'unrated').toLowerCase();
@@ -264,13 +245,11 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   show(cfStats);
 })();
 
-/* ══════════════════════════════════════════════════════════
-   PROJECT FILTERING
-══════════════════════════════════════════════════════════ */
+
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.proj-card');
 
-// Set initial state based on default active button
+
 const initialActiveFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
 projectCards.forEach(card => {
   if (card.dataset.category.includes(initialActiveFilter)) {
@@ -282,18 +261,18 @@ projectCards.forEach(card => {
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    // Remove active class from all buttons
+    
     filterBtns.forEach(b => b.classList.remove('active'));
-    // Add active class to clicked button
+    
     btn.classList.add('active');
 
     const filterValue = btn.dataset.filter;
 
-    // Filter projects
+    
     projectCards.forEach(card => {
       if (filterValue === 'all' || card.dataset.category.includes(filterValue)) {
         card.style.display = 'flex';
-        // Add a small animation effect
+        
         card.style.opacity = '0';
         setTimeout(() => {
           card.style.transition = 'opacity 0.3s ease';
@@ -306,10 +285,7 @@ filterBtns.forEach(btn => {
   });
 });
 
-/* ══════════════════════════════════════════════════════════
-   SECTION REVEAL (Intersection Observer)
-   Sections "pop" in as they enter the viewport.
-══════════════════════════════════════════════════════════ */
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -321,3 +297,26 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section').forEach(section => {
   revealObserver.observe(section);
 });
+
+(async function loadGitHubStats() {
+  const USERNAME = 'Its-Nishant-10';
+  const reposEl = document.getElementById('gh-repos');
+  const starsEl = document.getElementById('gh-stars');
+
+  try {
+    const res = await fetch(`https://api.github.com/users/${USERNAME}`);
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    if (reposEl) reposEl.textContent = data.public_repos || 0;
+
+    const reposRes = await fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100`);
+    if (reposRes.ok) {
+      const reposData = await reposRes.json();
+      const totalStars = reposData.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+      if (starsEl) starsEl.textContent = totalStars;
+    }
+  } catch (e) {
+    if (reposEl) reposEl.textContent = '—';
+    if (starsEl) starsEl.textContent = '—';
+  }
+})();
