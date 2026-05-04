@@ -139,9 +139,12 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
   const { total, easy, medium, hard, rank } = stats;
 
   if (totalEl)  totalEl.textContent  = total;
-  if (easyEl)   easyEl.textContent   = easy;
-  if (mediumEl) mediumEl.textContent = medium;
-  if (hardEl)   hardEl.textContent   = hard;
+  
+  // Rank in the pill
+  const rankBadgeEl = document.getElementById('lc-rank-badge');
+  if (rankBadgeEl) {
+    rankBadgeEl.textContent = rank ? `#${Number(rank).toLocaleString()}` : '—';
+  }
 
   // Update hero stat counter with live LC count
   const heroLcEl = document.getElementById('hero-lc-num');
@@ -301,4 +304,20 @@ filterBtns.forEach(btn => {
       }
     });
   });
+});
+
+/* ══════════════════════════════════════════════════════════
+   SECTION REVEAL (Intersection Observer)
+   Sections "pop" in as they enter the viewport.
+══════════════════════════════════════════════════════════ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.section').forEach(section => {
+  revealObserver.observe(section);
 });
