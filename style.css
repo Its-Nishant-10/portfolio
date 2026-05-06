@@ -1153,7 +1153,7 @@ h1:hover {
 }
 
 .about-headline {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 8vw, 3.5rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 32px;
@@ -1472,6 +1472,7 @@ footer {
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   .projects-grid .proj-card:nth-child(even) {
@@ -1529,9 +1530,25 @@ footer {
   }
 
   .about-photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-photo-frame {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .photo-caption {
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .about-chips {
     display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
   }
 
   .fact-item {
@@ -1558,7 +1575,19 @@ footer {
   }
 
   .about-photo-col {
+    display: flex;
+  }
+
+  .about-chips {
     grid-template-columns: 1fr;
+  }
+
+  .about-headline {
+    margin-bottom: 24px;
+  }
+
+  .about-facts {
+    font-size: 0.9rem;
   }
 
   .footer-inner {
